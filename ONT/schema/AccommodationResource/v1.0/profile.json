@@ -1,0 +1,27 @@
+{
+  "id": "https://schema.beckn.io/AccommodationResource/v1.0",
+  "name": "AccommodationResource",
+  "version": "1.0.0",
+  "protocol_version": "2.0",
+  "semantic_model": "generalised",
+  "included_schemas": ["AccommodationResource"],
+  "beckn_container": "resourceAttributes",
+  "discovery_fields": [
+    "localPropertyId", "propertyName", "starRating", "propertyAddress",
+    "propertyDescription",
+    "propertyImages", "propertyAmenities", "unitAmenities",
+    "contactPhone", "contactEmail", "contactWebsite"
+  ],
+  "indexable_paths": [
+    "localPropertyId", "starRating", "propertyName"
+  ],
+  "filterable_paths": [
+    "starRating"
+  ],
+  "sortable_paths": [
+    "starRating", "propertyName"
+  ],
+  "privacy_notes": [
+    "contactPhone, contactEmail, contactWebsite conveyed only where fulfilment requires direct property contact."
+  ]
+}

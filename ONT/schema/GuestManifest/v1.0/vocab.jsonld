@@ -1,0 +1,51 @@
+{
+  "@context": {
+    "@import": "https://schema.beckn.io/core/v2/vocab.jsonld",
+    "gm": "https://schema.beckn.io/GuestManifest#",
+    "schema": "https://schema.org/",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "skos": "http://www.w3.org/2004/02/skos/core#"
+  },
+  "@graph": [
+    {
+      "@id": "gm:GuestManifest",
+      "@type": "rdfs:Class",
+      "rdfs:label": "GuestManifest",
+      "rdfs:comment": "Per-room guest identity details for an accommodation booking, conveyed to the fulfilling property under explicit purpose-bound consent on the ONT network."
+    },
+    {
+      "@id": "gm:Passenger",
+      "@type": "rdfs:Class",
+      "rdfs:subClassOf": { "@id": "schema:Person" },
+      "rdfs:label": "Passenger",
+      "rdfs:comment": "An individual guest occupying an accommodation unit as part of a booking."
+    },
+    {
+      "@id": "gm:PassengerType",
+      "@type": "rdfs:Class",
+      "rdfs:label": "PassengerType",
+      "rdfs:comment": "Classification of an accommodation guest for rate eligibility."
+    },
+    {
+      "@id": "gm:Adult",
+      "@type": "gm:PassengerType",
+      "skos:broader": { "@id": "gm:PassengerType" },
+      "rdfs:label": "Adult",
+      "rdfs:comment": "An adult guest."
+    },
+    {
+      "@id": "gm:Child",
+      "@type": "gm:PassengerType",
+      "skos:broader": { "@id": "gm:PassengerType" },
+      "rdfs:label": "Child",
+      "rdfs:comment": "A child guest whose age determines rate eligibility."
+    },
+    {
+      "@id": "gm:ConsentArtifact",
+      "@type": "rdfs:Class",
+      "rdfs:label": "ConsentArtifact",
+      "rdfs:comment": "A purpose-bound consent record authorising the sharing of guest PII with the fulfilling accommodation provider for a specific stay."
+    }
+  ]
+}

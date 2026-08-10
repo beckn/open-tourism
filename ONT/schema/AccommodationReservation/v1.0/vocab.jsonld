@@ -1,0 +1,64 @@
+{
+  "@context": {
+    "@import": "https://schema.beckn.io/core/v2/vocab.jsonld",
+    "ares": "https://schema.beckn.io/AccommodationReservation#",
+    "schema": "https://schema.org/",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "skos": "http://www.w3.org/2004/02/skos/core#"
+  },
+  "@graph": [
+    {
+      "@id": "ares:AccommodationReservation",
+      "@type": "rdfs:Class",
+      "rdfs:subClassOf": { "@id": "schema:LodgingReservation" },
+      "rdfs:label": "AccommodationReservation",
+      "rdfs:comment": "Booking lifecycle record for an accommodation reservation on the ONT network."
+    },
+    {
+      "@id": "ares:ReservationStatus",
+      "@type": "rdfs:Class",
+      "rdfs:subClassOf": { "@id": "schema:ReservationStatusType" },
+      "rdfs:label": "ReservationStatus",
+      "rdfs:comment": "Lifecycle status vocabulary for accommodation bookings on the ONT network."
+    },
+    {
+      "@id": "ares:Vouchered",
+      "@type": "ares:ReservationStatus",
+      "skos:broader": { "@id": "ares:ReservationStatus" },
+      "owl:sameAs": { "@id": "schema:ReservationConfirmed" },
+      "rdfs:label": "vouchered",
+      "rdfs:comment": "Booking confirmed and accommodation voucher issued."
+    },
+    {
+      "@id": "ares:OnRequest",
+      "@type": "ares:ReservationStatus",
+      "skos:broader": { "@id": "ares:ReservationStatus" },
+      "owl:sameAs": { "@id": "schema:ReservationPending" },
+      "rdfs:label": "on-request",
+      "rdfs:comment": "Booking awaiting property confirmation. Poll via status until resolved."
+    },
+    {
+      "@id": "ares:Failed",
+      "@type": "ares:ReservationStatus",
+      "skos:broader": { "@id": "ares:ReservationStatus" },
+      "rdfs:label": "failed",
+      "rdfs:comment": "Booking failed due to a supply-side system error."
+    },
+    {
+      "@id": "ares:Cancelled",
+      "@type": "ares:ReservationStatus",
+      "skos:broader": { "@id": "ares:ReservationStatus" },
+      "owl:sameAs": { "@id": "schema:ReservationCancelled" },
+      "rdfs:label": "cancelled",
+      "rdfs:comment": "Booking cancelled by the traveller or agent."
+    },
+    {
+      "@id": "ares:Rejected",
+      "@type": "ares:ReservationStatus",
+      "skos:broader": { "@id": "ares:ReservationStatus" },
+      "rdfs:label": "rejected",
+      "rdfs:comment": "Booking declined by the property after the on-request period."
+    }
+  ]
+}

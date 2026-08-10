@@ -1,0 +1,20 @@
+{
+  "@context": {
+    "schema": "https://schema.org/",
+    "ar": "https://schema.beckn.io/AccommodationResource#",
+    "AccommodationResource": "ar:AccommodationResource",
+    "localPropertyId": { "@id": "ar:localPropertyId" },
+    "propertyName": { "@id": "schema:name" },
+    "starRating": { "@id": "schema:starRating" },
+    "propertyAddress": { "@id": "schema:streetAddress" },
+    "propertyDescription": { "@id": "schema:description" },
+    "propertyImages": { "@id": "ar:propertyImages", "@container": "@list" },
+    "thumbnailUrl": { "@id": "schema:thumbnailUrl" },
+    "fullUrl": { "@id": "schema:contentUrl" },
+    "propertyAmenities": { "@id": "ar:propertyAmenities", "@container": "@list" },
+    "unitAmenities": { "@id": "ar:unitAmenities", "@container": "@list" },
+    "contactPhone": { "@id": "schema:telephone" },
+    "contactEmail": { "@id": "schema:email" },
+    "contactWebsite": { "@id": "schema:url" }
+  }
+}

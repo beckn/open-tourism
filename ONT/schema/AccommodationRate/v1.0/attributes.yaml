@@ -1,0 +1,146 @@
+openapi: 3.1.1
+$id: https://schema.beckn.io/AccommodationRate/v1.0/attributes.yaml
+info:
+  title: AccommodationRate
+  version: 1.0.0
+  description: >
+    Live availability and pricing attributes for a specific room-rate combination,
+    returned in the dynamic on_discover response. Valid only within the 20-minute
+    search session that produced it.
+    Carries the unit type, meal inclusion, total price, per-night breakdown,
+    refundability flag, and indicative (non-binding) cancellation windows shown
+    at discovery. Binding cancellation terms are confirmed separately at the
+    init (pre-commit check) stage.
+
+components:
+  schemas:
+    AccommodationRate:
+      type: object
+      x-beckn-container: offerAttributes
+      x-status: active
+      x-tags:
+        - accommodation
+        - ont
+        - offer
+        - live
+        - pricing
+      x-jsonld:
+        '@context': https://schema.beckn.io/AccommodationRate/v1.0/context.jsonld
+        '@type': acr:AccommodationRate
+      description: >
+        Live-priced offer attributes for one room-rate combination within a
+        20-minute search session.
+      properties:
+        unitCategory:
+          type: string
+          description: >
+            Room or unit type label as defined by the property, such as
+            Deluxe Room Twin or Classic Room.
+        unitTypeDescription:
+          type: string
+          description: >
+            Full descriptive label of the room-rate combination as returned
+            by the supply system, including meal basis, pax count, and any
+            discount or refundability labels concatenated.
+        mealBasisCode:
+          type: string
+          description: >
+            Short meal-plan code as used by the supply system.
+            Common values: RO (Room Only), BB (Bed and Breakfast),
+            HB (Half Board), FB (Full Board), AI (All Inclusive).
+        mealBasisLabel:
+          type: string
+          description: >
+            Human-readable meal plan description as returned by the supply
+            system, such as NRF-RO or BAR Breakfast.
+        totalRateAmount:
+          type: number
+          description: >
+            Total price for the full stay duration at this rate, in the
+            currency requested in the search.
+        rateCurrency:
+          type: string
+          description: >
+            ISO 4217 currency code for all pricing in this offer.
+        nightlyRates:
+          type: array
+          description: >
+            Per-night rate breakdown. One entry per calendar night of
+            the requested stay.
+          items:
+            type: object
+            properties:
+              date:
+                type: string
+                description: >
+                  Calendar date of this night (DD-MM-YYYY).
+              dayOfWeek:
+                type: string
+                description: >
+                  Day of the week for this night, such as Wednesday.
+              nightlyRate:
+                type: number
+                description: >
+                  Display nightly rate for this specific date.
+        refundable:
+          type: boolean
+          description: >
+            Whether this rate allows cancellation with at least a partial
+            refund. False means non-refundable from the moment of booking.
+            Binding terms are confirmed at init.
+        adultsCount:
+          type: integer
+          description: >
+            Number of adults this rate accommodates for the searched party.
+        childrenCount:
+          type: integer
+          description: >
+            Number of children this rate accommodates for the searched party.
+        childAges:
+          type: array
+          description: >
+            Ages of children in the searched party for this room.
+          items:
+            type: integer
+        unitCount:
+          type: integer
+          description: >
+            Number of units of this room type included in this rate.
+        available:
+          type: integer
+          description: >
+            Availability flag from the supply system. 1 means available
+            for booking; 0 means not available.
+        rateNote:
+          type: string
+          description: >
+            Additional note from the supply system about this rate, such as
+            a non-refundable notice.
+        indicativeCancellationWindows:
+          type: array
+          description: >
+            Indicative cancellation charge windows shown at discovery only.
+            NOT binding — binding terms are confirmed at the init stage.
+            Never use these for the actual charge at cancellation time.
+          items:
+            type: object
+            properties:
+              windowStart:
+                type: string
+                description: >
+                  Start of this charge window as a timezone-qualified datetime.
+              windowEnd:
+                type: string
+                description: >
+                  End of this charge window as a timezone-qualified datetime.
+              chargeAmount:
+                type: number
+                description: >
+                  Cancellation charge that applies within this window.
+        sessionExpiresAt:
+          type: string
+          description: >
+            Expiry of the 20-minute search session that produced this offer.
+            The BAP must complete select, init, and confirm before this
+            timestamp. After expiry the BPP rejects with a session-expired
+            error and a new discover is required.

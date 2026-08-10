@@ -1,0 +1,100 @@
+openapi: 3.1.1
+$id: https://schema.beckn.io/AccommodationResource/v1.0/attributes.yaml
+info:
+  title: AccommodationResource
+  version: 1.0.0
+  description: >
+    Static catalog attributes for an accommodation property published on the ONT
+    network. Represents a bookable unit type (room, apartment, villa, or homestay
+    unit) at a named property. Property-level context is denormalized into every
+    unit resource so each is self-contained for discovery without joins.
+    This data is published via catalog_publish on a cron schedule and returned
+    in the static on_discover response. It carries no live availability, no pricing,
+    and no PII.
+
+components:
+  schemas:
+    AccommodationResource:
+      type: object
+      x-beckn-container: resourceAttributes
+      x-status: active
+      x-tags:
+        - accommodation
+        - ont
+        - catalog
+        - static
+      x-jsonld:
+        '@context': https://schema.beckn.io/AccommodationResource/v1.0/context.jsonld
+        '@type': ar:AccommodationResource
+      description: >
+        Static catalog attributes for an accommodation unit type at a property.
+        Carries no pricing or live availability.
+      properties:
+        localPropertyId:
+          type: string
+          description: >
+            Stable supply-system identifier for the property, assigned at
+            onboarding and never reused. Persists across search sessions and
+            serves as the join key between static catalog data and live
+            availability results.
+        propertyName:
+          type: string
+          description: >
+            Display name of the accommodation property.
+        starRating:
+          type: number
+          description: >
+            Official star classification of the property on the 1.0-to-5.0 scale,
+            as assigned by the supply system.
+        propertyAddress:
+          type: string
+          description: >
+            Full postal address of the property.
+        propertyDescription:
+          type: string
+          description: >
+            Narrative description of the property. May be empty for some
+            supply system records.
+        propertyImages:
+          type: array
+          description: >
+            Collection of property images. Each entry carries a thumbnail URL
+            for list views and a full-resolution URL for detail views.
+          items:
+            type: object
+            properties:
+              thumbnailUrl:
+                type: string
+                description: >
+                  Low-resolution thumbnail URL for use in search result lists.
+              fullUrl:
+                type: string
+                description: >
+                  Full-resolution image URL for use in property detail views.
+        propertyAmenities:
+          type: array
+          description: >
+            Flat list of property-level amenity names available to all guests,
+            such as Swimming Pool, Gym, or Business Centre.
+          items:
+            type: string
+        unitAmenities:
+          type: array
+          description: >
+            Flat list of unit-level amenity names present in the accommodation
+            unit, such as Air Conditioning, Safe, or Free WiFi.
+          items:
+            type: string
+        contactPhone:
+          type: string
+          description: >
+            Property telephone number. Conveyed only where guest fulfilment
+            requires direct property contact.
+        contactEmail:
+          type: string
+          description: >
+            Property email address. Conveyed only where fulfilment requires it.
+        contactWebsite:
+          type: string
+          description: >
+            Property website URL.

@@ -1,0 +1,24 @@
+{
+  "@context": {
+    "schema": "https://schema.org/",
+    "gm": "https://schema.beckn.io/GuestManifest#",
+    "GuestManifest": "gm:GuestManifest",
+    "passengers": { "@id": "gm:passengers", "@container": "@list" },
+    "salutation": { "@id": "schema:honorificPrefix" },
+    "firstName": { "@id": "schema:givenName" },
+    "lastName": { "@id": "schema:familyName" },
+    "passengerType": { "@id": "gm:passengerType" },
+    "age": { "@id": "schema:age" },
+    "specialRequest": { "@id": "gm:specialRequest" },
+    "specialRequestDisclaimer": { "@id": "gm:specialRequestDisclaimer" },
+    "consentArtifact": { "@id": "gm:consentArtifact" },
+    "consentId": { "@id": "gm:consentId" },
+    "subject": { "@id": "gm:consentSubject" },
+    "purpose": { "@id": "gm:consentPurpose" },
+    "scope": { "@id": "gm:consentScope", "@container": "@list" },
+    "grantedAt": { "@id": "gm:grantedAt" },
+    "expiresAt": { "@id": "gm:expiresAt" },
+    "mechanism": { "@id": "gm:consentMechanism" },
+    "mediator": { "@id": "gm:consentMediator" }
+  }
+}

@@ -1,0 +1,140 @@
+{
+  "context": {
+    "networkId": "nfh.global/ont-hotel",
+    "action": "on_discover",
+    "version": "2.0.0",
+    "transactionId": "txn-f4a8b3c2-0e5f-4b7c-9d4e-2f3a4b5c6d7e",
+    "messageId": "msg-disc-live-resp-001",
+    "timestamp": "2026-07-02T09:00:01.200Z",
+    "bapId": "bap.traveller.ont.example.com",
+    "bapUri": "https://bap.traveller.ont.example.com/beckn",
+    "bppId": "otrams-bpp.qtechsoftware.com",
+    "bppUri": "https://otrams-bpp.qtechsoftware.com/beckn",
+    "schemaContext": [
+      "https://schema.beckn.io/AccommodationResource/v1.0/context.jsonld",
+      "https://schema.beckn.io/AccommodationRate/v1.0/context.jsonld"
+    ]
+  },
+  "message": {
+    "catalogs": [
+      {
+        "id": "cat-ont-hjdubai-001",
+        "descriptor": {
+          "name": "OTRAMS — Available Rooms",
+          "shortDesc": "Dubai · 10–12 Jul 2026 · 2 adults · 1 child age 7 · USD"
+        },
+        "bppId": "otrams-bpp.qtechsoftware.com",
+        "bppUri": "https://otrams-bpp.qtechsoftware.com/beckn",
+        "provider": {
+          "id": "hotel-hjdubai-OT000068509",
+          "descriptor": {
+            "name": "HOWARD JOHNSON PLAZA BY WYNDHAM DUBAI DEIRA",
+            "shortDesc": "4-star hotel — 26 B St, Deira, Dubai, UAE",
+            "thumbnailImage": "https://media.otrams.com/OT000068509/thumb_exterior.jpg",
+            "mediaFile": [
+              {
+                "label": "Hotel Exterior",
+                "mimeType": "image/jpeg",
+                "uri": "https://media.otrams.com/OT000068509/exterior.jpg"
+              }
+            ]
+          },
+          "availableAt": [
+            {
+              "geo": {
+                "type": "Point",
+                "coordinates": [55.30551, 25.27119]
+              },
+              "address": {
+                "streetAddress": "26 B St - Deira",
+                "addressLocality": "Dubai",
+                "postalCode": "00000",
+                "addressCountry": "AE"
+              }
+            }
+          ],
+          "providerAttributes": {
+            "@context": "https://schema.beckn.io/AccommodationResource/v1.0/context.jsonld",
+            "@type": "ar:AccommodationResource",
+            "localPropertyId": "OT000068509",
+            "propertyName": "HOWARD JOHNSON PLAZA BY WYNDHAM DUBAI DEIRA",
+            "starRating": 4.0,
+            "propertyAmenities": [
+              "Swimming Pool", "Fitness Centre", "Restaurant", "Free WiFi"
+            ],
+            "contactPhone": "+971-4-000-0000"
+          }
+        },
+        "resources": [
+          {
+            "id": "res-OT000068509-deluxe-twin",
+            "descriptor": {
+              "name": "Deluxe Room Twin",
+              "shortDesc": "2 Single Beds · max 2 adults + 1 child · Available"
+            },
+            "resourceAttributes": {
+              "@context": "https://schema.beckn.io/AccommodationResource/v1.0/context.jsonld",
+              "@type": "ar:AccommodationResource",
+              "localPropertyId": "OT000068509",
+              "propertyName": "HOWARD JOHNSON PLAZA BY WYNDHAM DUBAI DEIRA",
+              "starRating": 4.0,
+              "propertyAddress": "26 B St - Deira - Dubai - United Arab Emirates",
+
+              "propertyImages": [
+                {
+                  "thumbnailUrl": "https://media.otrams.com/OT000068509/thumb_exterior.jpg",
+                  "fullUrl": "https://media.otrams.com/OT000068509/exterior.jpg"
+                }
+              ],
+              "propertyAmenities": [
+                "Swimming Pool", "Fitness Centre", "Restaurant", "Free WiFi"
+              ],
+              "unitAmenities": [
+                "Air Conditioning", "Flat-screen TV", "Minibar", "Free WiFi"
+              ]
+            }
+          }
+        ],
+        "offers": [
+          {
+            "id": "offer-OT000068509-NRF-RO-001",
+            "resourceIds": ["res-OT000068509-deluxe-twin"],
+            "descriptor": {
+              "name": "Deluxe Room Twin — Room Only (Non-Refundable)",
+              "shortDesc": "Non-refundable · Room Only · 117.26 USD total"
+            },
+            "offerAttributes": {
+              "@context": "https://schema.beckn.io/AccommodationRate/v1.0/context.jsonld",
+              "@type": "acr:AccommodationRate",
+              "unitCategory": "Deluxe Room Twin",
+              "unitTypeDescription": "Deluxe Room Twin -NRF-RO : 2 Pax (Discount: Basic Deal) (Discount: Non Refundable) (Non-Refundable)",
+              "mealBasisCode": "RO",
+              "mealBasisLabel": "NRF-RO",
+              "totalRateAmount": 117.26,
+              "rateCurrency": "USD",
+              "nightlyRates": [
+                { "date": "10-07-2026", "dayOfWeek": "Friday", "nightlyRate": 58.63 },
+                { "date": "11-07-2026", "dayOfWeek": "Saturday", "nightlyRate": 58.63 }
+              ],
+              "refundable": false,
+              "adultsCount": 2,
+              "childrenCount": 1,
+              "childAges": [7],
+              "unitCount": 1,
+              "available": 1,
+              "rateNote": " (Non-Refundable)",
+              "indicativeCancellationWindows": [
+                {
+                  "windowStart": "2024-12-31T10:00:54+04:00",
+                  "windowEnd": "2026-07-10T04:00:00+04:00",
+                  "chargeAmount": 117.27
+                }
+              ],
+              "sessionExpiresAt": "2026-07-02T09:20:01.200Z"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

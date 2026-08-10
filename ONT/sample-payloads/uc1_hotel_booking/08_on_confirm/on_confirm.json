@@ -1,0 +1,151 @@
+{
+  "context": {
+    "networkId": "nfh.global/ont-hotel",
+    "action": "on_confirm",
+    "version": "2.0.0",
+    "transactionId": "txn-f4a8b3c2-0e5f-4b7c-9d4e-2f3a4b5c6d7e",
+    "messageId": "msg-confirm-resp-001",
+    "timestamp": "2026-07-02T09:03:05.000Z",
+    "bapId": "bap.traveller.ont.example.com",
+    "bapUri": "https://bap.traveller.ont.example.com/beckn",
+    "bppId": "otrams-bpp.qtechsoftware.com",
+    "bppUri": "https://otrams-bpp.qtechsoftware.com/beckn",
+    "schemaContext": [
+      "https://schema.beckn.io/AccommodationReservation/v1.0/context.jsonld",
+      "https://schema.beckn.io/GuestManifest/v1.0/context.jsonld"
+    ]
+  },
+  "message": {
+    "contract": {
+      "id": "contract-ont-hjdubai-f4a8b3c2",
+      "status": {
+        "code": "ACTIVE"
+      },
+      "commitments": [
+        {
+          "id": "commitment-room-1",
+          "status": {
+            "descriptor": {
+              "code": "ACTIVE"
+            }
+          },
+          "resources": [
+            {
+              "id": "res-OT000068509-deluxe-twin",
+              "quantity": {
+                "count": 1
+              },
+              "descriptor": {
+                "name": "Deluxe Room Twin",
+                "shortDesc": "2 Single Beds · 10–12 Jul 2026"
+              }
+            }
+          ],
+          "offer": {
+            "id": "offer-OT000068509-NRF-RO-001",
+            "resourceIds": [
+              "res-OT000068509-deluxe-twin"
+            ]
+          },
+          "commitmentAttributes": {
+            "@context": "https://schema.beckn.io/GuestManifest/v1.0/context.jsonld",
+            "@type": "gm:GuestManifest",
+            "passengers": [
+              {
+                "salutation": "Mr",
+                "firstName": "THAM",
+                "lastName": "ALSA",
+                "passengerType": "adult"
+              },
+              {
+                "salutation": "Mr",
+                "firstName": "KHAD",
+                "lastName": "DAR",
+                "passengerType": "adult"
+              },
+              {
+                "salutation": "Child",
+                "firstName": "SMAA",
+                "lastName": "ALSA",
+                "passengerType": "child",
+                "age": 7
+              }
+            ],
+            "specialRequest": "non smoking room",
+            "specialRequestDisclaimer": "Special Requests are not guaranteed & are subject to availability upon check in at the hotel."
+          }
+        }
+      ],
+      "consideration": [
+        {
+          "id": "cons-room-1-total",
+          "considerationAttributes": {
+            "@context": "https://schema.beckn.io/PriceSpecification/v2.2/context.jsonld",
+            "@type": "PriceSpecification",
+            "currency": "USD",
+            "description": "Total for 2 nights — Deluxe Room Twin, Room Only",
+            "valueAddedTaxIncluded": false,
+            "value": 117.26
+          },
+          "status": {
+            "code": "ACTIVE"
+          }
+        }
+      ],
+      "participants": [
+        {
+          "id": "part-traveller-c517eea7",
+          "role": "BOOKER",
+          "descriptor": {
+            "name": "THAM ALSA"
+          }
+        },
+        {
+          "id": "hotel-hjdubai-OT000068509",
+          "role": "PROVIDER",
+          "descriptor": {
+            "name": "HOWARD JOHNSON PLAZA BY WYNDHAM DUBAI DEIRA"
+          }
+        }
+      ],
+      "contractAttributes": {
+        "@context": "https://schema.beckn.io/AccommodationReservation/v1.0/context.jsonld",
+        "@type": "ares:AccommodationReservation",
+        "bookingReference": "OT2601499261",
+        "agentReference": "c517eea7eaeadc402b82",
+        "networkConfirmationRef": "",
+        "propertyConfirmationRef": "",
+        "reservationStatus": "vouchered",
+        "bookingDate": "2026-07-02 09:03:03",
+        "cancellationDeadline": "2024-12-30 11:55:00",
+        "totalChargeAmount": 117.26,
+        "grossAmount": "117.26",
+        "chargeCurrency": "USD",
+        "leadSalutation": "Mr",
+        "leadFirstName": "THAM",
+        "leadLastName": "ALSA",
+        "localPropertyId": "OT000068509",
+        "propertyName": "HOWARD JOHNSON PLAZA BY WYNDHAM DUBAI DEIRA",
+        "propertyAddress": "",
+        "propertyPhone": "",
+        "propertyRating": "4.0",
+        "propertyCountry": "United Arab Emirates",
+        "propertyCity": "Dubai",
+        "checkInDate": "2026-07-10",
+        "checkOutDate": "2026-07-12",
+        "selectedNights": "2",
+        "totalRooms": "1",
+        "totalAdults": "2",
+        "totalChildren": "1",
+        "roomDetail": [
+          {
+            "roomTypeDescription": "Deluxe Room Twin -NRF-RO : 2 Pax ,1 child",
+            "numberOfRooms": "1"
+          }
+        ],
+        "specialRemark": "Special Requests are not guaranteed & are subject to availability upon check in at the hotel.",
+        "contractComments": "Rates are subject to applicable government taxes at the time of arrival, Government tax may be introduced at any time and will be applicable to all bookings."
+      }
+    }
+  }
+}

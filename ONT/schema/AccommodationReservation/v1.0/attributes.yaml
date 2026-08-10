@@ -1,0 +1,249 @@
+openapi: 3.1.1
+$id: https://schema.beckn.io/AccommodationReservation/v1.0/attributes.yaml
+info:
+  title: AccommodationReservation
+  version: 1.0.0
+  description: >
+    Booking record attributes carried in contractAttributes from on_confirm
+    onwards. Captures every identifier, status value, stay summary, guest
+    lead, and financial detail returned by the supply system at reservation
+    time and updated via status retrieval. Also carries cancellation outcome
+    fields populated in on_cancel.
+    The bookingReference is the external-facing reference and the grievance
+    anchor for any cancellation-charge disputes.
+    Booking status vocabulary is fixed at the network level:
+    vouchered | on-request | failed | cancelled | rejected.
+
+components:
+  schemas:
+    AccommodationReservation:
+      type: object
+      x-beckn-container: contractAttributes
+      x-status: active
+      x-tags:
+        - accommodation
+        - ont
+        - reservation
+        - booking
+        - lifecycle
+      x-jsonld:
+        '@context': https://schema.beckn.io/AccommodationReservation/v1.0/context.jsonld
+        '@type': ares:AccommodationReservation
+      description: >
+        Booking lifecycle record for an accommodation reservation on the ONT
+        network.
+      properties:
+
+        # --- Identifiers ---
+
+        bookingReference:
+          type: string
+          description: >
+            Network-level booking reference issued by the supply system.
+            Serves as the external-facing reference and the grievance anchor
+            for any cancellation-charge disputes.
+        agentReference:
+          type: string
+          description: >
+            Agent or traveller reference echoed from the confirm request.
+            This is the idempotency key — retried confirms with the same
+            value return the original outcome without creating a duplicate.
+        networkConfirmationRef:
+          type: string
+          description: >
+            Supply-system confirmation number issued once the booking is
+            fully processed. May be empty at on_confirm and populated in
+            subsequent on_status calls.
+        propertyConfirmationRef:
+          type: string
+          description: >
+            Confirmation number issued by the property's own reservation
+            system. Arrives after the supply system relays the booking to
+            the property. May be empty at on_confirm.
+
+        # --- Status ---
+
+        reservationStatus:
+          type: string
+          description: >
+            Current lifecycle status of the booking as reported by the supply
+            system. Fixed vocabulary:
+            "vouchered" — confirmed and accommodation voucher issued.
+            "on-request" — awaiting property confirmation; poll via status.
+            "failed" — system error prevented confirmation.
+            "cancelled" — booking has been cancelled.
+            "rejected" — property declined the booking after on-request period.
+          enum:
+            - vouchered
+            - on-request
+            - failed
+            - cancelled
+            - rejected
+        bookingDate:
+          type: string
+          description: >
+            Date and time when the reservation was created by the supply system.
+        cancellationDeadline:
+          type: string
+          description: >
+            Date and time of the cancellation deadline in ISO 8601 format.
+            After this point cancellation charges apply per the binding policy.
+            Must be shown prominently on the booking confirmation.
+
+        # --- Financial ---
+
+        totalChargeAmount:
+          type: number
+          description: >
+            Total amount charged for the booking. Must match the expected_price
+            sent at confirm. Used as the authoritative amount for settlement.
+        grossAmount:
+          type: string
+          description: >
+            Gross amount as returned by the supply system.
+        chargeCurrency:
+          type: string
+          description: >
+            ISO 4217 currency code of the committed amount.
+
+        # --- Lead guest ---
+
+        leadSalutation:
+          type: string
+          description: >
+            Salutation of the lead guest, derived from the first passenger.
+        leadFirstName:
+          type: string
+          description: >
+            Given name of the lead guest.
+        leadLastName:
+          type: string
+          description: >
+            Family name of the lead guest.
+
+        # --- Property identity ---
+
+        localPropertyId:
+          type: string
+          description: >
+            Stable supply-system property identifier.
+        propertyName:
+          type: string
+          description: >
+            Name of the accommodation property.
+        propertyAddress:
+          type: string
+          description: >
+            Address of the property as recorded on the booking.
+        propertyPhone:
+          type: string
+          description: >
+            Property telephone number for guest contact.
+        propertyRating:
+          type: string
+          description: >
+            Star rating of the property at time of booking.
+        propertyCountry:
+          type: string
+          description: >
+            Country name of the property's location.
+        propertyCity:
+          type: string
+          description: >
+            City of the property's location.
+
+        # --- Stay details ---
+
+        checkInDate:
+          type: string
+          description: >
+            Scheduled check-in date (YYYY-MM-DD).
+        checkOutDate:
+          type: string
+          description: >
+            Scheduled check-out date (YYYY-MM-DD).
+        selectedNights:
+          type: string
+          description: >
+            Number of nights for the stay.
+        totalRooms:
+          type: string
+          description: >
+            Total number of rooms booked.
+        totalAdults:
+          type: string
+          description: >
+            Total number of adult guests across all rooms.
+        totalChildren:
+          type: string
+          description: >
+            Total number of child guests across all rooms.
+
+        # --- Room summary ---
+
+        roomDetail:
+          type: array
+          description: >
+            Per-room booking summary. Each entry describes one room's type
+            and the guests assigned to it.
+          items:
+            type: object
+            properties:
+              roomTypeDescription:
+                type: string
+                description: >
+                  Full room-type label as confirmed by the supply system.
+              numberOfRooms:
+                type: string
+                description: >
+                  Count of units of this room type in the booking.
+              roomType:
+                type: string
+                description: >
+                  Bed configuration type, such as double or twin.
+                  Present in booking-detail retrieval response only.
+
+        # --- Remarks ---
+
+        specialRemark:
+          type: string
+          description: >
+            Special request echoed with the standard supply-system disclaimer
+            that requests are not guaranteed.
+        contractComments:
+          type: string
+          description: >
+            Binding contract remarks from the supply system, such as government
+            tax applicability at the time of arrival.
+        cancellationPolicyText:
+          type: string
+          description: >
+            Full cancellation policy text in force, as returned in the
+            booking-detail retrieval response. May be HTML-encoded. Present
+            after the booking is retrieved via status, not at on_confirm.
+
+        # --- Cancellation outcome (on_cancel) ---
+
+        cancellationDate:
+          type: string
+          description: >
+            Date and time the booking was cancelled, ISO 8601.
+            Present in on_cancel response.
+        cancellationChargeAmount:
+          type: number
+          description: >
+            Charge applied on cancellation per the binding policy.
+            Present in on_cancel response.
+        cancellationChargeCurrency:
+          type: string
+          description: >
+            ISO 4217 currency code of the cancellation charge.
+        refundAmount:
+          type: number
+          description: >
+            Amount refunded to the traveller after deducting any charges.
+            Present in on_cancel response.
+        refundCurrency:
+          type: string
+          description: >
+            ISO 4217 currency code of the refund amount.

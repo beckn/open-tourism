@@ -1,0 +1,130 @@
+openapi: 3.1.1
+$id: https://schema.beckn.io/GuestManifest/v1.0/attributes.yaml
+info:
+  title: GuestManifest
+  version: 1.0.0
+  description: >
+    Per-room guest identity details sent at the confirm stage and returned
+    echoed in on_confirm. Contains PII and must not appear in on_discover
+    or on_select responses. Shared only with the fulfilling property and its
+    supply system under explicit, purpose-bound consent.
+    The lead guest is the first passenger entry for each room; the supply
+    system derives the lead name fields from it.
+    Child ages are mandatory for every child passenger — they determine rate
+    eligibility and property occupancy rules.
+
+components:
+  schemas:
+    GuestManifest:
+      type: object
+      x-beckn-container: commitmentAttributes
+      x-status: active
+      x-tags:
+        - accommodation
+        - ont
+        - pii
+        - guest
+        - consent
+      x-jsonld:
+        '@context': https://schema.beckn.io/GuestManifest/v1.0/context.jsonld
+        '@type': gm:GuestManifest
+      description: >
+        Per-room guest manifest for an accommodation booking. Contains PII.
+        Bound to a single commitment (one room); the commitment structure
+        provides the room context.
+      properties:
+        passengers:
+          type: array
+          description: >
+            Ordered list of guests for this room. The first entry is the lead
+            guest whose name appears on the booking confirmation and voucher.
+            The supply system derives the lead guest from this ordering.
+          items:
+            type: object
+            properties:
+              salutation:
+                type: string
+                description: >
+                  Honorific or title for the guest. Common values: Mr, Mrs,
+                  Ms, Miss, Dr, Child. Not restricted to an enum as conventions
+                  vary internationally.
+              firstName:
+                type: string
+                description: >
+                  Given name of the guest exactly as it should appear on
+                  property records and the booking voucher.
+              lastName:
+                type: string
+                description: >
+                  Family name of the guest.
+              passengerType:
+                type: string
+                description: >
+                  Classification of the guest for rate eligibility and occupancy
+                  validation. Values: adult or child.
+              age:
+                type: integer
+                description: >
+                  Age of the guest in years. Required for every child passenger.
+                  Determines rate eligibility. Misstatement of age is resolved
+                  at the property under its ordinary terms, not silently
+                  absorbed by the network.
+        specialRequest:
+          type: string
+          description: >
+            Free-text special request for this room, such as a non-smoking
+            preference or late check-in request. Conveyed to the property
+            but never guaranteed. The confirmation always includes a
+            disclaimer that special requests are subject to availability.
+        specialRequestDisclaimer:
+          type: string
+          description: >
+            Standard disclaimer echoed by the supply system on confirmation.
+            Typically: "Special Requests are not guaranteed and are subject
+            to availability upon check-in at the hotel."
+        consentArtifact:
+          type: object
+          description: >
+            Purpose-bound consent record authorising the conveyance of guest
+            PII to the fulfilling property. Required before this manifest is
+            transmitted. This is a network-layer requirement for the ONT
+            consent framework.
+          properties:
+            consentId:
+              type: string
+              description: Unique identifier for this consent record.
+            subject:
+              type: string
+              description: >
+                Names of the guests covered by this consent, including
+                minors consented for by the responsible adult.
+            purpose:
+              type: string
+              description: >
+                Purpose of data sharing, bound to the specific stay —
+                property name, check-in date, and check-out date.
+            scope:
+              type: array
+              description: >
+                Data fields covered by this consent, such as guest names,
+                child ages, and special requests.
+              items:
+                type: string
+            grantedAt:
+              type: string
+              description: Timestamp when consent was granted, ISO 8601.
+            expiresAt:
+              type: string
+              description: >
+                Timestamp when this consent expires, typically at check-out
+                plus any retention window required for financial reconciliation.
+            mechanism:
+              type: string
+              description: >
+                Method by which consent was collected, such as
+                explicit click-through, OTP, or signed form.
+            mediator:
+              type: string
+              description: >
+                Application or system that collected consent on behalf of
+                the traveller.

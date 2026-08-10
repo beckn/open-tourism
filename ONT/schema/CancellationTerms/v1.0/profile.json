@@ -1,0 +1,26 @@
+{
+  "id": "https://schema.beckn.io/CancellationTerms/v1.0",
+  "name": "CancellationTerms",
+  "version": "1.0.0",
+  "protocol_version": "2.0",
+  "semantic_model": "generalised",
+  "included_schemas": ["CancellationTerms"],
+  "beckn_container": "offerAttributes",
+  "discovery_fields": [
+    "verifiedTotalAmount", "verifiedTotalCurrency", "contractComment",
+    "bookingPermitted", "unitSoldOut", "statusMessage",
+    "cancellationHours", "appliedChargeAmount",
+    "refundabilityLabel", "bindingCancellationWindows",
+    "amendmentTerms", "noShowTerms",
+    "priceChanged", "priceMovementAmount",
+    "cancellationChargeQuote"
+  ],
+  "indexable_paths": [
+    "bookingPermitted", "unitSoldOut", "priceChanged"
+  ],
+  "filterable_paths": [
+    "bookingPermitted", "unitSoldOut"
+  ],
+  "sortable_paths": [],
+  "privacy_notes": []
+}

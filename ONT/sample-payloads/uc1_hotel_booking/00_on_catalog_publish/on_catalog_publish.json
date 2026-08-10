@@ -1,0 +1,24 @@
+{
+  "context": {
+    "networkId": "nfh.global/ont-hotel",
+    "action": "catalog/on_publish",
+    "version": "2.0.0",
+    "transactionId": "pub-cron-OT000068509-20260810",
+    "messageId": "msg-pub-resp-001",
+    "timestamp": "2026-08-10T00:00:01.000Z",
+    "bppId": "otrams-bpp.qtechsoftware.com",
+    "bppUri": "https://otrams-bpp.qtechsoftware.com/beckn"
+  },
+  "message": {
+    "results": [
+      {
+        "catalogId": "cat-ont-hjdubai-001",
+        "status": "ACCEPTED",
+        "stats": {
+          "resourceCount": 1,
+          "providerCount": 1
+        }
+      }
+    ]
+  }
+}

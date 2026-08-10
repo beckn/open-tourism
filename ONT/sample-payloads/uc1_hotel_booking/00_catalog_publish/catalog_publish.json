@@ -1,0 +1,120 @@
+{
+  "context": {
+    "networkId": "nfh.global/ont-hotel",
+    "action": "catalog/publish",
+    "version": "2.0.0",
+    "transactionId": "pub-cron-OT000068509-20260810",
+    "messageId": "msg-pub-001",
+    "timestamp": "2026-08-10T00:00:00.000Z",
+    "bppId": "otrams-bpp.qtechsoftware.com",
+    "bppUri": "https://otrams-bpp.qtechsoftware.com/beckn",
+    "schemaContext": [
+      "https://schema.beckn.io/AccommodationResource/v1.0/context.jsonld"
+    ]
+  },
+  "message": {
+    "publishDirectives": [
+      {
+        "catalogId": "cat-ont-hjdubai-001",
+        "catalogType": "REGULAR",
+        "visibleTo": [
+          "nfh.global/ont-hotel"
+        ]
+      }
+    ],
+    "catalogs": [
+      {
+        "id": "cat-ont-hjdubai-001",
+        "bppId": "otrams-bpp.qtechsoftware.com",
+        "bppUri": "https://otrams-bpp.qtechsoftware.com/beckn",
+        "descriptor": {
+          "name": "OTRAMS — Howard Johnson Plaza Dubai Deira",
+          "shortDesc": "Static accommodation catalog — OTRAMS (Qtech Software)"
+        },
+        "provider": {
+          "id": "hotel-hjdubai-OT000068509",
+          "descriptor": {
+            "name": "HOWARD JOHNSON PLAZA BY WYNDHAM DUBAI DEIRA",
+            "shortDesc": "4-star hotel — 26 B St, Deira, Dubai, UAE",
+            "longDesc": "Contemporary 4-star hotel in the heart of Deira, Dubai, offering easy access to the Gold Souk, Dubai Creek, and the metro network.",
+            "thumbnailImage": "https://media.otrams.com/OT000068509/thumb_exterior.jpg",
+            "mediaFile": [
+              {
+                "label": "Hotel Exterior",
+                "mimeType": "image/jpeg",
+                "uri": "https://media.otrams.com/OT000068509/exterior.jpg"
+              },
+              {
+                "label": "Hotel Lobby",
+                "mimeType": "image/jpeg",
+                "uri": "https://media.otrams.com/OT000068509/lobby.jpg"
+              }
+            ]
+          },
+          "availableAt": [
+            {
+              "geo": {
+                "type": "Point",
+                "coordinates": [55.30551, 25.27119]
+              },
+              "address": {
+                "streetAddress": "26 B St - Deira",
+                "addressLocality": "Dubai",
+                "postalCode": "00000",
+                "addressCountry": "AE"
+              }
+            }
+          ],
+          "providerAttributes": {
+            "@context": "https://schema.beckn.io/AccommodationResource/v1.0/context.jsonld",
+            "@type": "ar:AccommodationResource",
+            "localPropertyId": "OT000068509",
+            "propertyName": "HOWARD JOHNSON PLAZA BY WYNDHAM DUBAI DEIRA",
+            "starRating": 4.0,
+            "propertyAddress": "26 B St - Deira - Dubai - United Arab Emirates",
+            "propertyDescription": "Contemporary 4-star hotel in the heart of Deira, Dubai, offering easy access to the Gold Souk, Dubai Creek, and the metro network.",
+            "propertyAmenities": [
+              "Swimming Pool", "Fitness Centre", "Restaurant", "24-Hour Front Desk",
+              "Business Centre", "Laundry Service", "Airport Shuttle", "Free WiFi"
+            ],
+            "contactPhone": "+971-4-000-0000",
+            "contactEmail": "reservations@hjdubai.example.com",
+            "contactWebsite": "https://www.wyndhamhotels.com"
+          }
+        },
+        "resources": [
+          {
+            "id": "res-OT000068509-deluxe-twin",
+            "descriptor": {
+              "name": "Deluxe Room Twin",
+              "shortDesc": "2 Single Beds · max 2 adults + 1 child"
+            },
+            "resourceAttributes": {
+              "@context": "https://schema.beckn.io/AccommodationResource/v1.0/context.jsonld",
+              "@type": "ar:AccommodationResource",
+              "localPropertyId": "OT000068509",
+              "propertyName": "HOWARD JOHNSON PLAZA BY WYNDHAM DUBAI DEIRA",
+              "starRating": 4.0,
+              "propertyAddress": "26 B St - Deira - Dubai - United Arab Emirates",
+
+              "propertyImages": [
+                {
+                  "thumbnailUrl": "https://media.otrams.com/OT000068509/thumb_exterior.jpg",
+                  "fullUrl": "https://media.otrams.com/OT000068509/exterior.jpg"
+                }
+              ],
+              "propertyAmenities": [
+                "Swimming Pool", "Fitness Centre", "Restaurant", "24-Hour Front Desk",
+                "Business Centre", "Laundry Service", "Airport Shuttle", "Free WiFi"
+              ],
+              "unitAmenities": [
+                "Air Conditioning", "Flat-screen TV", "Minibar", "In-room Safe",
+                "Hair Dryer", "Free WiFi", "Work Desk", "Blackout Curtains"
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

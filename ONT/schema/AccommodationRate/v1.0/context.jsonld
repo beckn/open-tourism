@@ -1,0 +1,29 @@
+{
+  "@context": {
+    "schema": "https://schema.org/",
+    "acr": "https://schema.beckn.io/AccommodationRate#",
+    "AccommodationRate": "acr:AccommodationRate",
+    "unitCategory": { "@id": "acr:unitCategory" },
+    "unitTypeDescription": { "@id": "acr:unitTypeDescription" },
+    "mealBasisCode": { "@id": "acr:mealBasisCode" },
+    "mealBasisLabel": { "@id": "acr:mealBasisLabel" },
+    "totalRateAmount": { "@id": "schema:price" },
+    "rateCurrency": { "@id": "schema:priceCurrency" },
+    "nightlyRates": { "@id": "acr:nightlyRates", "@container": "@list" },
+    "date": { "@id": "acr:date" },
+    "dayOfWeek": { "@id": "schema:dayOfWeek" },
+    "nightlyRate": { "@id": "acr:nightlyRate" },
+    "refundable": { "@id": "acr:refundable" },
+    "adultsCount": { "@id": "acr:adultsCount" },
+    "childrenCount": { "@id": "acr:childrenCount" },
+    "childAges": { "@id": "acr:childAges", "@container": "@list" },
+    "unitCount": { "@id": "acr:unitCount" },
+    "available": { "@id": "acr:available" },
+    "rateNote": { "@id": "acr:rateNote" },
+    "indicativeCancellationWindows": { "@id": "acr:indicativeCancellationWindows", "@container": "@list" },
+    "windowStart": { "@id": "acr:windowStart" },
+    "windowEnd": { "@id": "acr:windowEnd" },
+    "chargeAmount": { "@id": "acr:chargeAmount" },
+    "sessionExpiresAt": { "@id": "acr:sessionExpiresAt" }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "context": {
+    "networkId": "nfh.global/ont-hotel",
+    "action": "status",
+    "version": "2.0.0",
+    "transactionId": "txn-f4a8b3c2-0e5f-4b7c-9d4e-2f3a4b5c6d7e",
+    "messageId": "msg-status-001",
+    "timestamp": "2026-07-02T11:00:00.000Z",
+    "bapId": "bap.traveller.ont.example.com",
+    "bapUri": "https://bap.traveller.ont.example.com/beckn",
+    "bppId": "otrams-bpp.qtechsoftware.com",
+    "bppUri": "https://otrams-bpp.qtechsoftware.com/beckn"
+  },
+  "message": {
+    "contract": {
+      "id": "contract-ont-hjdubai-f4a8b3c2",
+      "commitments": [
+        {
+          "id": "commitment-room-1",
+          "status": {
+            "descriptor": { "code": "ACTIVE" }
+          },
+          "resources": [
+            {
+              "id": "res-OT000068509-deluxe-twin",
+              "quantity": { "count": 1 }
+            }
+          ],
+          "offer": {
+            "id": "offer-OT000068509-NRF-RO-001",
+            "resourceIds": ["res-OT000068509-deluxe-twin"]
+          }
+        }
+      ]
+    }
+  }
+}

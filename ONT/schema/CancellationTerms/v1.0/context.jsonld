@@ -1,0 +1,28 @@
+{
+  "@context": {
+    "schema": "https://schema.org/",
+    "ct": "https://schema.beckn.io/CancellationTerms#",
+    "CancellationTerms": "ct:CancellationTerms",
+    "verifiedTotalAmount": { "@id": "ct:verifiedTotalAmount" },
+    "verifiedTotalCurrency": { "@id": "ct:verifiedTotalCurrency" },
+    "contractComment": { "@id": "ct:contractComment" },
+    "bookingPermitted": { "@id": "ct:bookingPermitted" },
+    "unitSoldOut": { "@id": "ct:unitSoldOut" },
+    "statusMessage": { "@id": "ct:statusMessage" },
+    "cancellationHours": { "@id": "ct:cancellationHours" },
+    "appliedChargeAmount": { "@id": "ct:appliedChargeAmount" },
+    "refundabilityLabel": { "@id": "ct:refundabilityLabel" },
+    "bindingCancellationWindows": { "@id": "ct:bindingCancellationWindows", "@container": "@list" },
+    "windowStart": { "@id": "ct:windowStart" },
+    "windowEnd": { "@id": "ct:windowEnd" },
+    "chargeAmount": { "@id": "ct:chargeAmount" },
+    "amendmentTerms": { "@id": "ct:amendmentTerms" },
+    "noShowTerms": { "@id": "ct:noShowTerms" },
+    "priceChanged": { "@id": "ct:priceChanged" },
+    "priceMovementAmount": { "@id": "ct:priceMovementAmount" },
+    "cancellationChargeQuote": { "@id": "ct:cancellationChargeQuote" },
+    "allowCancel": { "@id": "ct:allowCancel" },
+    "chargeCurrency": { "@id": "ct:chargeCurrency" },
+    "quoteMessage": { "@id": "ct:quoteMessage" }
+  }
+}
