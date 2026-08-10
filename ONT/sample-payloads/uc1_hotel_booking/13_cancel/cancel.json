@@ -10,10 +10,7 @@
     "bapUri": "https://bap.traveller.ont.example.com/beckn",
     "bppId": "otrams-bpp.qtechsoftware.com",
     "bppUri": "https://otrams-bpp.qtechsoftware.com/beckn",
-    "try": false,
-    "requestDigest": {
-      "digest": "BLAKE-512=c517eea7eaeadc402b82cancelf4a8b3c2=="
-    }
+    "try": false
   },
   "message": {
     "contract": {
