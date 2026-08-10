@@ -1,0 +1,174 @@
+openapi: 3.1.1
+$id: https://schema.beckn.io/CancellationTerms/v1.0/attributes.yaml
+info:
+  title: CancellationTerms
+  version: 1.0.0
+  description: >
+    Binding cancellation and refund terms confirmed at the pre-commit check
+    (init) stage, and the price-integrity result and booking gate signals
+    required before any commitment is made.
+    Also carries the point-in-time cancellation charge quote returned in
+    on_cancel_quote.
+    Supply systems may return two distinct response formats for cancellation
+    policy; this schema normalises both into a single vocabulary.
+    Format 1 (simple): cancellation hours + applied charge amount.
+    Format 2 (structured): datetime-window policy with price integrity signals.
+    BPPs must populate whichever fields are available from their supply system.
+
+components:
+  schemas:
+    CancellationTerms:
+      type: object
+      x-beckn-container: offerAttributes
+      x-status: active
+      x-tags:
+        - accommodation
+        - ont
+        - cancellation
+        - pre-commit
+        - policy
+      x-jsonld:
+        '@context': https://schema.beckn.io/CancellationTerms/v1.0/context.jsonld
+        '@type': ct:CancellationTerms
+      description: >
+        Binding cancellation policy confirmed at the pre-commit check. Normalises
+        Format 1 (hours-based) and Format 2 (datetime windows) into one
+        vocabulary. Also used for cancel quote in on_cancel_quote.
+      properties:
+
+        # --- Fields common to both formats ---
+
+        verifiedTotalAmount:
+          type: number
+          description: >
+            Total booking amount verified by the supply system at the pre-commit
+            check. This value becomes the expected price the BAP must pass at
+            confirm. If the BAP passes a different amount, the commit fails.
+        verifiedTotalCurrency:
+          type: string
+          description: >
+            ISO 4217 currency code of the verified total amount.
+        contractComment:
+          type: string
+          description: >
+            Free-text contract remarks from the supply system. Contains
+            property-collected fees such as city tax or tourism levies that
+            the guest pays at check-in outside the booked total. Must be
+            shown to the traveller before commitment.
+        bookingPermitted:
+          type: string
+          description: >
+            Whether the booking may proceed. "yes" means the room is bookable
+            now. "no" means the booking must not proceed.
+            BAP must disable the confirm action when this is "no".
+        unitSoldOut:
+          type: string
+          description: >
+            Whether the selected unit has sold out since it appeared in
+            the discovery results. "Yes" means sold out. "No" means still
+            available. Must be surfaced honestly to the traveller.
+        statusMessage:
+          type: string
+          description: >
+            Human-readable message from the supply system describing the
+            booking gate status, such as "You are making a booking within
+            cancellation policy."
+
+        # --- Format 1 fields (hours-based, simple) ---
+
+        cancellationHours:
+          type: integer
+          description: >
+            Hours before check-in within which the cancellation charge applies,
+            as returned in the Format 1 (simple) policy response.
+            A negative value or zero is a stop-booking signal — the BPP must
+            NOT return bookingPermitted=yes in this case.
+        appliedChargeAmount:
+          type: number
+          description: >
+            The cancellation charge amount applicable under the Format 1 policy.
+            Blank or zero combined with a negative cancellationHours is a
+            stop-booking signal.
+
+        # --- Format 2 fields (structured datetime windows) ---
+
+        refundabilityLabel:
+          type: string
+          description: >
+            Plain-language refundability classification for this rate, such as
+            Refundable or Non-Refundable.
+        bindingCancellationWindows:
+          type: array
+          description: >
+            Ordered list of binding cancellation charge windows. Each entry
+            defines the period and the charge that applies for a cancellation
+            made within it. Timezone-qualified datetimes.
+          items:
+            type: object
+            properties:
+              windowStart:
+                type: string
+                description: >
+                  Start of this charge window as a timezone-qualified datetime.
+              windowEnd:
+                type: string
+                description: >
+                  End of this charge window as a timezone-qualified datetime.
+              chargeAmount:
+                type: number
+                description: >
+                  Charge applicable for a cancellation within this window,
+                  in verifiedTotalCurrency.
+        amendmentTerms:
+          type: string
+          description: >
+            Terms governing date or occupancy amendments after confirmation.
+            Empty string when no amendment policy applies.
+        noShowTerms:
+          type: string
+          description: >
+            Charge or terms that apply when the guest does not arrive and has
+            not cancelled.
+        priceChanged:
+          type: string
+          description: >
+            Whether the price moved between the discovery session and this
+            pre-commit check. "yes" means it changed. "no" means it held.
+            BAP must surface any price change to the traveller before
+            allowing commitment.
+        priceMovementAmount:
+          type: number
+          description: >
+            The monetary amount by which the price changed, in
+            verifiedTotalCurrency. Present when priceChanged is "yes".
+
+        # --- Cancel quote fields (from cancellation charge retrieval) ---
+
+        cancellationChargeQuote:
+          type: object
+          description: >
+            Point-in-time cancellation charge quotation returned in
+            on_cancel_quote. Computed from the binding policy window at the
+            moment of the quote request. The traveller must acknowledge this
+            charge before the cancel action is executed.
+          properties:
+            allowCancel:
+              type: string
+              description: >
+                Whether cancellation is permitted at the quoted moment.
+                "yes" or "no".
+            chargeAmount:
+              type: string
+              description: >
+                Monetary amount that will be forfeited if cancelled now.
+                "0" means free cancellation.
+            chargeCurrency:
+              type: string
+              description: >
+                ISO 4217 currency code of the cancellation charge. May differ
+                from the booking currency.
+            quoteMessage:
+              type: string
+              description: >
+                Human-readable explanation of the charge or restriction, such
+                as "You can cancel this booking."

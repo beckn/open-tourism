@@ -1,0 +1,101 @@
+{
+  "context": {
+    "networkId": "nfh.global/ont-hotel",
+    "action": "on_init",
+    "version": "2.0.0",
+    "transactionId": "txn-f4a8b3c2-0e5f-4b7c-9d4e-2f3a4b5c6d7e",
+    "messageId": "msg-init-resp-001",
+    "timestamp": "2026-07-02T09:02:01.300Z",
+    "bapId": "bap.traveller.ont.example.com",
+    "bapUri": "https://bap.traveller.ont.example.com/beckn",
+    "bppId": "otrams-bpp.qtechsoftware.com",
+    "bppUri": "https://otrams-bpp.qtechsoftware.com/beckn",
+    "schemaContext": [
+      "https://schema.beckn.io/CancellationTerms/v1.0/context.jsonld"
+    ]
+  },
+  "message": {
+    "contract": {
+      "id": "contract-ont-hjdubai-f4a8b3c2",
+      "status": {
+        "code": "DRAFT"
+      },
+      "commitments": [
+        {
+          "id": "commitment-room-1",
+          "status": {
+            "descriptor": {
+              "code": "DRAFT"
+            }
+          },
+          "resources": [
+            {
+              "id": "res-OT000068509-deluxe-twin",
+              "quantity": {
+                "count": 1
+              },
+              "descriptor": {
+                "name": "Deluxe Room Twin",
+                "shortDesc": "2 Single Beds · 10–12 Jul 2026"
+              }
+            }
+          ],
+          "offer": {
+            "id": "offer-OT000068509-NRF-RO-001",
+            "resourceIds": [
+              "res-OT000068509-deluxe-twin"
+            ],
+            "offerAttributes": {
+              "@context": "https://schema.beckn.io/CancellationTerms/v1.0/context.jsonld",
+              "@type": "ct:CancellationTerms",
+              "verifiedTotalAmount": 117.26,
+              "verifiedTotalCurrency": "USD",
+              "contractComment": "",
+              "bookingPermitted": "yes",
+              "unitSoldOut": "No",
+              "statusMessage": "You are making a booking within cancellation policy.",
+              "refundabilityLabel": "Non-Refundable",
+              "bindingCancellationWindows": [
+                {
+                  "windowStart": "2024-12-31T12:34:00+04:00",
+                  "windowEnd": "2026-07-10T04:00:00+04:00",
+                  "chargeAmount": 117.27
+                }
+              ],
+              "amendmentTerms": "",
+              "noShowTerms": "",
+              "priceChanged": "no",
+              "priceMovementAmount": 0
+            }
+          }
+        }
+      ],
+      "consideration": [
+        {
+          "id": "cons-room-1-total",
+          "considerationAttributes": {
+            "@context": "https://schema.beckn.io/PriceSpecification/v2.2/context.jsonld",
+            "@type": "PriceSpecification",
+            "currency": "USD",
+            "description": "Total for 2 nights — Deluxe Room Twin, Room Only (verified)",
+            "valueAddedTaxIncluded": false,
+            "value": 117.26
+          },
+          "status": {
+            "code": "PENDING"
+          }
+        }
+      ],
+      "participants": [
+        {
+          "id": "part-traveller-c517eea7",
+          "role": "BOOKER"
+        },
+        {
+          "id": "hotel-hjdubai-OT000068509",
+          "role": "PROVIDER"
+        }
+      ]
+    }
+  }
+}

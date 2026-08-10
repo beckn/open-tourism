@@ -1,0 +1,380 @@
+{
+  "info": {
+    "_postman_id": "b2c3d4e5-f6a7-8901-bcde-f12345678901",
+    "name": "BPP:ONT UC1 — Hotel Booking (v2)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "00 · catalog/publish (BPP → CS)",
+      "item": [
+        {
+          "name": "00 · catalog/publish (BPP → CS)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"context\": {\n    \"networkId\": \"{{networkId}}\",\n    \"action\": \"catalog/publish\",\n    \"version\": \"{{version}}\",\n    \"transactionId\": \"pub-cron-OT000068509-20260810\",\n    \"messageId\": \"msg-pub-001\",\n    \"timestamp\": \"2026-08-10T00:00:00.000Z\",\n    \"bppId\": \"{{bppId}}\",\n    \"bppUri\": \"{{bppUri}}\",\n    \"schemaContext\": [\n      \"https://schema.beckn.io/AccommodationResource/v1.0/context.jsonld\"\n    ]\n  },\n  \"message\": {\n    \"publishDirectives\": [\n      {\n        \"catalogId\": \"cat-ont-hjdubai-001\",\n        \"catalogType\": \"REGULAR\",\n        \"visibleTo\": [\n          \"{{networkId}}\"\n        ]\n      }\n    ],\n    \"catalogs\": [\n      {\n        \"id\": \"cat-ont-hjdubai-001\",\n        \"bppId\": \"{{bppId}}\",\n        \"bppUri\": \"{{bppUri}}\",\n        \"descriptor\": {\n          \"name\": \"OTRAMS — Howard Johnson Plaza Dubai Deira\",\n          \"shortDesc\": \"Static accommodation catalog — OTRAMS (Qtech Software)\"\n        },\n        \"provider\": {\n          \"id\": \"hotel-hjdubai-OT000068509\",\n          \"descriptor\": {\n            \"name\": \"HOWARD JOHNSON PLAZA BY WYNDHAM DUBAI DEIRA\",\n            \"shortDesc\": \"4-star hotel — 26 B St, Deira, Dubai, UAE\",\n            \"longDesc\": \"Contemporary 4-star hotel in the heart of Deira, Dubai, offering easy access to the Gold Souk, Dubai Creek, and the metro network.\",\n            \"thumbnailImage\": \"https://media.otrams.com/OT000068509/thumb_exterior.jpg\",\n            \"mediaFile\": [\n              {\n                \"label\": \"Hotel Exterior\",\n                \"mimeType\": \"image/jpeg\",\n                \"uri\": \"https://media.otrams.com/OT000068509/exterior.jpg\"\n              },\n              {\n                \"label\": \"Hotel Lobby\",\n                \"mimeType\": \"image/jpeg\",\n                \"uri\": \"https://media.otrams.com/OT000068509/lobby.jpg\"\n              }\n            ]\n          },\n          \"availableAt\": [\n            {\n              \"geo\": {\n                \"type\": \"Point\",\n                \"coordinates\": [\n                  55.30551,\n                  25.27119\n                ]\n              },\n              \"address\": {\n                \"streetAddress\": \"26 B St - Deira\",\n                \"addressLocality\": \"Dubai\",\n                \"postalCode\": \"00000\",\n                \"addressCountry\": \"AE\"\n              }\n            }\n          ],\n          \"providerAttributes\": {\n            \"@context\": \"https://schema.beckn.io/AccommodationResource/v1.0/context.jsonld\",\n            \"@type\": \"ar:AccommodationResource\",\n            \"localPropertyId\": \"OT000068509\",\n            \"propertyName\": \"HOWARD JOHNSON PLAZA BY WYNDHAM DUBAI DEIRA\",\n            \"starRating\": 4.0,\n            \"propertyAddress\": \"26 B St - Deira - Dubai - United Arab Emirates\",\n            \"propertyDescription\": \"Contemporary 4-star hotel in the heart of Deira, Dubai, offering easy access to the Gold Souk, Dubai Creek, and the metro network.\",\n            \"propertyAmenities\": [\n              \"Swimming Pool\",\n              \"Fitness Centre\",\n              \"Restaurant\",\n              \"24-Hour Front Desk\",\n              \"Business Centre\",\n              \"Laundry Service\",\n              \"Airport Shuttle\",\n              \"Free WiFi\"\n            ],\n            \"contactPhone\": \"+971-4-000-0000\",\n            \"contactEmail\": \"reservations@hjdubai.example.com\",\n            \"contactWebsite\": \"https://www.wyndhamhotels.com\"\n          }\n        },\n        \"resources\": [\n          {\n            \"id\": \"res-OT000068509-deluxe-twin\",\n            \"descriptor\": {\n              \"name\": \"Deluxe Room Twin\",\n              \"shortDesc\": \"2 Single Beds · max 2 adults + 1 child\"\n            },\n            \"resourceAttributes\": {\n              \"@context\": \"https://schema.beckn.io/AccommodationResource/v1.0/context.jsonld\",\n              \"@type\": \"ar:AccommodationResource\",\n              \"localPropertyId\": \"OT000068509\",\n              \"propertyName\": \"HOWARD JOHNSON PLAZA BY WYNDHAM DUBAI DEIRA\",\n              \"starRating\": 4.0,\n              \"propertyAddress\": \"26 B St - Deira - Dubai - United Arab Emirates\",\n              \"propertyImages\": [\n                {\n                  \"thumbnailUrl\": \"https://media.otrams.com/OT000068509/thumb_exterior.jpg\",\n                  \"fullUrl\": \"https://media.otrams.com/OT000068509/exterior.jpg\"\n                }\n              ],\n              \"propertyAmenities\": [\n                \"Swimming Pool\",\n                \"Fitness Centre\",\n                \"Restaurant\",\n                \"24-Hour Front Desk\",\n                \"Business Centre\",\n                \"Laundry Service\",\n                \"Airport Shuttle\",\n                \"Free WiFi\"\n              ],\n              \"unitAmenities\": [\n                \"Air Conditioning\",\n                \"Flat-screen TV\",\n                \"Minibar\",\n                \"In-room Safe\",\n                \"Hair Dryer\",\n                \"Free WiFi\",\n                \"Work Desk\",\n                \"Blackout Curtains\"\n              ]\n            }\n          }\n        ]\n      }\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{bpp_adapter_url}}/catalog/publish",
+              "host": [
+                "{{bpp_adapter_url}}"
+              ],
+              "path": [
+                "catalog",
+                "publish"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "00 · on_catalog_publish (CS → BPP)",
+      "item": [
+        {
+          "name": "00 · on_catalog_publish (CS → BPP)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"context\": {\n    \"networkId\": \"{{networkId}}\",\n    \"action\": \"catalog/on_publish\",\n    \"version\": \"{{version}}\",\n    \"transactionId\": \"pub-cron-OT000068509-20260810\",\n    \"messageId\": \"msg-pub-resp-001\",\n    \"timestamp\": \"2026-08-10T00:00:01.000Z\",\n    \"bppId\": \"{{bppId}}\",\n    \"bppUri\": \"{{bppUri}}\"\n  },\n  \"message\": {\n    \"results\": [\n      {\n        \"catalogId\": \"cat-ont-hjdubai-001\",\n        \"status\": \"ACCEPTED\",\n        \"stats\": {\n          \"resourceCount\": 1,\n          \"providerCount\": 1\n        }\n      }\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{bpp_adapter_url}}/on_catalog_publish",
+              "host": [
+                "{{bpp_adapter_url}}"
+              ],
+              "path": [
+                "on_catalog_publish"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "02a · on_discover — Static (DS → BAP)",
+      "item": [
+        {
+          "name": "02a · on_discover — Static (DS → BAP)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"context\": {\n    \"networkId\": \"{{networkId}}\",\n    \"action\": \"on_discover\",\n    \"version\": \"{{version}}\",\n    \"transactionId\": \"txn-static-AE-Dubai-20260702\",\n    \"messageId\": \"msg-disc-static-resp-001\",\n    \"timestamp\": \"2026-07-02T08:55:01.000Z\",\n    \"bapId\": \"{{bapId}}\",\n    \"bapUri\": \"{{bapUri}}\",\n    \"bppId\": \"{{bppId}}\",\n    \"bppUri\": \"{{bppUri}}\",\n    \"schemaContext\": [\n      \"https://schema.beckn.io/AccommodationResource/v1.0/context.jsonld\"\n    ]\n  },\n  \"message\": {\n    \"catalogs\": [\n      {\n        \"id\": \"cat-ont-hjdubai-001\",\n        \"descriptor\": {\n          \"name\": \"OTRAMS — Howard Johnson Plaza Dubai Deira\",\n          \"shortDesc\": \"Static catalog — OTRAMS (Qtech Software)\"\n        },\n        \"bppId\": \"{{bppId}}\",\n        \"bppUri\": \"{{bppUri}}\",\n        \"provider\": {\n          \"id\": \"hotel-hjdubai-OT000068509\",\n          \"descriptor\": {\n            \"name\": \"HOWARD JOHNSON PLAZA BY WYNDHAM DUBAI DEIRA\",\n            \"shortDesc\": \"4-star hotel — 26 B St, Deira, Dubai, UAE\",\n            \"longDesc\": \"Contemporary 4-star hotel in the heart of Deira, Dubai, offering easy access to the Gold Souk, Dubai Creek, and the metro network.\",\n            \"thumbnailImage\": \"https://media.otrams.com/OT000068509/thumb_exterior.jpg\",\n            \"mediaFile\": [\n              {\n                \"label\": \"Hotel Exterior\",\n                \"mimeType\": \"image/jpeg\",\n                \"uri\": \"https://media.otrams.com/OT000068509/exterior.jpg\"\n              }\n            ]\n          },\n          \"availableAt\": [\n            {\n              \"geo\": {\n                \"type\": \"Point\",\n                \"coordinates\": [\n                  55.30551,\n                  25.27119\n                ]\n              },\n              \"address\": {\n                \"streetAddress\": \"26 B St - Deira\",\n                \"addressLocality\": \"Dubai\",\n                \"postalCode\": \"00000\",\n                \"addressCountry\": \"AE\"\n              }\n            }\n          ],\n          \"providerAttributes\": {\n            \"@context\": \"https://schema.beckn.io/AccommodationResource/v1.0/context.jsonld\",\n            \"@type\": \"ar:AccommodationResource\",\n            \"localPropertyId\": \"OT000068509\",\n            \"propertyName\": \"HOWARD JOHNSON PLAZA BY WYNDHAM DUBAI DEIRA\",\n            \"starRating\": 4.0,\n            \"propertyAmenities\": [\n              \"Swimming Pool\",\n              \"Fitness Centre\",\n              \"Restaurant\",\n              \"24-Hour Front Desk\",\n              \"Business Centre\",\n              \"Laundry Service\",\n              \"Airport Shuttle\",\n              \"Free WiFi\"\n            ],\n            \"contactPhone\": \"+971-4-000-0000\",\n            \"contactEmail\": \"reservations@hjdubai.example.com\",\n            \"contactWebsite\": \"https://www.wyndhamhotels.com\"\n          }\n        },\n        \"resources\": [\n          {\n            \"id\": \"res-OT000068509-deluxe-twin\",\n            \"descriptor\": {\n              \"name\": \"Deluxe Room Twin\",\n              \"shortDesc\": \"2 Single Beds · max 2 adults + 1 child\"\n            },\n            \"resourceAttributes\": {\n              \"@context\": \"https://schema.beckn.io/AccommodationResource/v1.0/context.jsonld\",\n              \"@type\": \"ar:AccommodationResource\",\n              \"localPropertyId\": \"OT000068509\",\n              \"propertyName\": \"HOWARD JOHNSON PLAZA BY WYNDHAM DUBAI DEIRA\",\n              \"starRating\": 4.0,\n              \"propertyAddress\": \"26 B St - Deira - Dubai - United Arab Emirates\",\n              \"propertyImages\": [\n                {\n                  \"thumbnailUrl\": \"https://media.otrams.com/OT000068509/thumb_exterior.jpg\",\n                  \"fullUrl\": \"https://media.otrams.com/OT000068509/exterior.jpg\"\n                }\n              ],\n              \"propertyAmenities\": [\n                \"Swimming Pool\",\n                \"Fitness Centre\",\n                \"Restaurant\",\n                \"Free WiFi\"\n              ],\n              \"unitAmenities\": [\n                \"Air Conditioning\",\n                \"Flat-screen TV\",\n                \"Minibar\",\n                \"Free WiFi\"\n              ]\n            }\n          }\n        ]\n      }\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{bpp_adapter_url}}/on_discover",
+              "host": [
+                "{{bpp_adapter_url}}"
+              ],
+              "path": [
+                "on_discover"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "02b · on_discover — Dynamic (DS → BAP)",
+      "item": [
+        {
+          "name": "02b · on_discover — Dynamic (DS → BAP)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"context\": {\n    \"networkId\": \"{{networkId}}\",\n    \"action\": \"on_discover\",\n    \"version\": \"{{version}}\",\n    \"transactionId\": \"{{transactionId}}\",\n    \"messageId\": \"msg-disc-live-resp-001\",\n    \"timestamp\": \"2026-07-02T09:00:01.200Z\",\n    \"bapId\": \"{{bapId}}\",\n    \"bapUri\": \"{{bapUri}}\",\n    \"bppId\": \"{{bppId}}\",\n    \"bppUri\": \"{{bppUri}}\",\n    \"schemaContext\": [\n      \"https://schema.beckn.io/AccommodationResource/v1.0/context.jsonld\",\n      \"https://schema.beckn.io/AccommodationRate/v1.0/context.jsonld\"\n    ]\n  },\n  \"message\": {\n    \"catalogs\": [\n      {\n        \"id\": \"cat-ont-hjdubai-001\",\n        \"descriptor\": {\n          \"name\": \"OTRAMS — Available Rooms\",\n          \"shortDesc\": \"Dubai · 10–12 Jul 2026 · 2 adults · 1 child age 7 · USD\"\n        },\n        \"bppId\": \"{{bppId}}\",\n        \"bppUri\": \"{{bppUri}}\",\n        \"provider\": {\n          \"id\": \"hotel-hjdubai-OT000068509\",\n          \"descriptor\": {\n            \"name\": \"HOWARD JOHNSON PLAZA BY WYNDHAM DUBAI DEIRA\",\n            \"shortDesc\": \"4-star hotel — 26 B St, Deira, Dubai, UAE\",\n            \"thumbnailImage\": \"https://media.otrams.com/OT000068509/thumb_exterior.jpg\",\n            \"mediaFile\": [\n              {\n                \"label\": \"Hotel Exterior\",\n                \"mimeType\": \"image/jpeg\",\n                \"uri\": \"https://media.otrams.com/OT000068509/exterior.jpg\"\n              }\n            ]\n          },\n          \"availableAt\": [\n            {\n              \"geo\": {\n                \"type\": \"Point\",\n                \"coordinates\": [\n                  55.30551,\n                  25.27119\n                ]\n              },\n              \"address\": {\n                \"streetAddress\": \"26 B St - Deira\",\n                \"addressLocality\": \"Dubai\",\n                \"postalCode\": \"00000\",\n                \"addressCountry\": \"AE\"\n              }\n            }\n          ],\n          \"providerAttributes\": {\n            \"@context\": \"https://schema.beckn.io/AccommodationResource/v1.0/context.jsonld\",\n            \"@type\": \"ar:AccommodationResource\",\n            \"localPropertyId\": \"OT000068509\",\n            \"propertyName\": \"HOWARD JOHNSON PLAZA BY WYNDHAM DUBAI DEIRA\",\n            \"starRating\": 4.0,\n            \"propertyAmenities\": [\n              \"Swimming Pool\",\n              \"Fitness Centre\",\n              \"Restaurant\",\n              \"Free WiFi\"\n            ],\n            \"contactPhone\": \"+971-4-000-0000\"\n          }\n        },\n        \"resources\": [\n          {\n            \"id\": \"res-OT000068509-deluxe-twin\",\n            \"descriptor\": {\n              \"name\": \"Deluxe Room Twin\",\n              \"shortDesc\": \"2 Single Beds · max 2 adults + 1 child · Available\"\n            },\n            \"resourceAttributes\": {\n              \"@context\": \"https://schema.beckn.io/AccommodationResource/v1.0/context.jsonld\",\n              \"@type\": \"ar:AccommodationResource\",\n              \"localPropertyId\": \"OT000068509\",\n              \"propertyName\": \"HOWARD JOHNSON PLAZA BY WYNDHAM DUBAI DEIRA\",\n              \"starRating\": 4.0,\n              \"propertyAddress\": \"26 B St - Deira - Dubai - United Arab Emirates\",\n              \"propertyImages\": [\n                {\n                  \"thumbnailUrl\": \"https://media.otrams.com/OT000068509/thumb_exterior.jpg\",\n                  \"fullUrl\": \"https://media.otrams.com/OT000068509/exterior.jpg\"\n                }\n              ],\n              \"propertyAmenities\": [\n                \"Swimming Pool\",\n                \"Fitness Centre\",\n                \"Restaurant\",\n                \"Free WiFi\"\n              ],\n              \"unitAmenities\": [\n                \"Air Conditioning\",\n                \"Flat-screen TV\",\n                \"Minibar\",\n                \"Free WiFi\"\n              ]\n            }\n          }\n        ],\n        \"offers\": [\n          {\n            \"id\": \"offer-OT000068509-NRF-RO-001\",\n            \"resourceIds\": [\n              \"res-OT000068509-deluxe-twin\"\n            ],\n            \"descriptor\": {\n              \"name\": \"Deluxe Room Twin — Room Only (Non-Refundable)\",\n              \"shortDesc\": \"Non-refundable · Room Only · 117.26 USD total\"\n            },\n            \"offerAttributes\": {\n              \"@context\": \"https://schema.beckn.io/AccommodationRate/v1.0/context.jsonld\",\n              \"@type\": \"acr:AccommodationRate\",\n              \"unitCategory\": \"Deluxe Room Twin\",\n              \"unitTypeDescription\": \"Deluxe Room Twin -NRF-RO : 2 Pax (Discount: Basic Deal) (Discount: Non Refundable) (Non-Refundable)\",\n              \"mealBasisCode\": \"RO\",\n              \"mealBasisLabel\": \"NRF-RO\",\n              \"totalRateAmount\": 117.26,\n              \"rateCurrency\": \"USD\",\n              \"nightlyRates\": [\n                {\n                  \"date\": \"10-07-2026\",\n                  \"dayOfWeek\": \"Friday\",\n                  \"nightlyRate\": 58.63\n                },\n                {\n                  \"date\": \"11-07-2026\",\n                  \"dayOfWeek\": \"Saturday\",\n                  \"nightlyRate\": 58.63\n                }\n              ],\n              \"refundable\": false,\n              \"adultsCount\": 2,\n              \"childrenCount\": 1,\n              \"childAges\": [\n                7\n              ],\n              \"unitCount\": 1,\n              \"available\": 1,\n              \"rateNote\": \" (Non-Refundable)\",\n              \"indicativeCancellationWindows\": [\n                {\n                  \"windowStart\": \"2024-12-31T10:00:54+04:00\",\n                  \"windowEnd\": \"2026-07-10T04:00:00+04:00\",\n                  \"chargeAmount\": 117.27\n                }\n              ],\n              \"sessionExpiresAt\": \"2026-07-02T09:20:01.200Z\"\n            }\n          }\n        ]\n      }\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{bpp_adapter_url}}/on_discover",
+              "host": [
+                "{{bpp_adapter_url}}"
+              ],
+              "path": [
+                "on_discover"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "04 · on_select (BPP → BAP)",
+      "item": [
+        {
+          "name": "04 · on_select (BPP → BAP)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"context\": {\n    \"networkId\": \"{{networkId}}\",\n    \"action\": \"on_select\",\n    \"version\": \"{{version}}\",\n    \"transactionId\": \"{{transactionId}}\",\n    \"messageId\": \"msg-sel-resp-001\",\n    \"timestamp\": \"2026-07-02T09:01:01.500Z\",\n    \"bapId\": \"{{bapId}}\",\n    \"bapUri\": \"{{bapUri}}\",\n    \"bppId\": \"{{bppId}}\",\n    \"bppUri\": \"{{bppUri}}\",\n    \"schemaContext\": [\n      \"https://schema.beckn.io/AccommodationResource/v1.0/context.jsonld\",\n      \"https://schema.beckn.io/AccommodationRate/v1.0/context.jsonld\"\n    ]\n  },\n  \"message\": {\n    \"contract\": {\n      \"id\": \"contract-ont-hjdubai-f4a8b3c2\",\n      \"status\": {\n        \"code\": \"DRAFT\"\n      },\n      \"commitments\": [\n        {\n          \"id\": \"commitment-room-1\",\n          \"status\": {\n            \"descriptor\": {\n              \"code\": \"DRAFT\"\n            }\n          },\n          \"resources\": [\n            {\n              \"id\": \"res-OT000068509-deluxe-twin\",\n              \"quantity\": {\n                \"count\": 1\n              },\n              \"descriptor\": {\n                \"name\": \"Deluxe Room Twin\",\n                \"shortDesc\": \"2 Single Beds · max 2 adults + 1 child\"\n              },\n              \"resourceAttributes\": {\n                \"@context\": \"https://schema.beckn.io/AccommodationResource/v1.0/context.jsonld\",\n                \"@type\": \"ar:AccommodationResource\",\n                \"localPropertyId\": \"OT000068509\",\n                \"propertyName\": \"HOWARD JOHNSON PLAZA BY WYNDHAM DUBAI DEIRA\",\n                \"starRating\": 4.0,\n                \"propertyAddress\": \"26 B St - Deira - Dubai - United Arab Emirates\",\n                \"propertyDescription\": \"Contemporary 4-star hotel in the heart of Deira, Dubai, offering easy access to the Gold Souk, Dubai Creek, and the metro network.\",\n                \"propertyImages\": [\n                  {\n                    \"thumbnailUrl\": \"https://media.otrams.com/OT000068509/thumb_exterior.jpg\",\n                    \"fullUrl\": \"https://media.otrams.com/OT000068509/exterior.jpg\"\n                  },\n                  {\n                    \"thumbnailUrl\": \"https://media.otrams.com/OT000068509/thumb_lobby.jpg\",\n                    \"fullUrl\": \"https://media.otrams.com/OT000068509/lobby.jpg\"\n                  },\n                  {\n                    \"thumbnailUrl\": \"https://media.otrams.com/OT000068509/thumb_pool.jpg\",\n                    \"fullUrl\": \"https://media.otrams.com/OT000068509/pool.jpg\"\n                  }\n                ],\n                \"propertyAmenities\": [\n                  \"Swimming Pool\",\n                  \"Fitness Centre\",\n                  \"Restaurant\",\n                  \"24-Hour Front Desk\",\n                  \"Business Centre\",\n                  \"Laundry Service\",\n                  \"Airport Shuttle\",\n                  \"Free WiFi\",\n                  \"Concierge\",\n                  \"Parking\"\n                ],\n                \"unitAmenities\": [\n                  \"Air Conditioning\",\n                  \"Flat-screen TV\",\n                  \"Minibar\",\n                  \"In-room Safe\",\n                  \"Hair Dryer\",\n                  \"Free WiFi\",\n                  \"Work Desk\",\n                  \"Blackout Curtains\",\n                  \"Iron and Board\"\n                ],\n                \"contactPhone\": \"+971-4-000-0000\",\n                \"contactEmail\": \"reservations@hjdubai.example.com\",\n                \"contactWebsite\": \"https://www.wyndhamhotels.com\"\n              }\n            }\n          ],\n          \"offer\": {\n            \"id\": \"offer-OT000068509-NRF-RO-001\",\n            \"resourceIds\": [\n              \"res-OT000068509-deluxe-twin\"\n            ],\n            \"offerAttributes\": {\n              \"@context\": \"https://schema.beckn.io/AccommodationRate/v1.0/context.jsonld\",\n              \"@type\": \"acr:AccommodationRate\",\n              \"unitCategory\": \"Deluxe Room Twin\",\n              \"unitTypeDescription\": \"Deluxe Room Twin -NRF-RO : 2 Pax (Discount: Basic Deal) (Discount: Non Refundable) (Non-Refundable)\",\n              \"mealBasisCode\": \"RO\",\n              \"mealBasisLabel\": \"NRF-RO\",\n              \"totalRateAmount\": 117.26,\n              \"rateCurrency\": \"USD\",\n              \"nightlyRates\": [\n                {\n                  \"date\": \"10-07-2026\",\n                  \"dayOfWeek\": \"Friday\",\n                  \"nightlyRate\": 58.63\n                },\n                {\n                  \"date\": \"11-07-2026\",\n                  \"dayOfWeek\": \"Saturday\",\n                  \"nightlyRate\": 58.63\n                }\n              ],\n              \"refundable\": false,\n              \"adultsCount\": 2,\n              \"childrenCount\": 1,\n              \"childAges\": [\n                7\n              ],\n              \"unitCount\": 1,\n              \"available\": 1,\n              \"rateNote\": \" (Non-Refundable)\",\n              \"indicativeCancellationWindows\": [\n                {\n                  \"windowStart\": \"2024-12-31T10:00:54+04:00\",\n                  \"windowEnd\": \"2026-07-10T04:00:00+04:00\",\n                  \"chargeAmount\": 117.27\n                }\n              ],\n              \"sessionExpiresAt\": \"2026-07-02T09:20:01.200Z\"\n            }\n          }\n        }\n      ],\n      \"participants\": [\n        {\n          \"id\": \"part-traveller-c517eea7\",\n          \"role\": \"BOOKER\"\n        },\n        {\n          \"id\": \"hotel-hjdubai-OT000068509\",\n          \"role\": \"PROVIDER\",\n          \"descriptor\": {\n            \"name\": \"HOWARD JOHNSON PLAZA BY WYNDHAM DUBAI DEIRA\"\n          }\n        }\n      ]\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{bpp_adapter_url}}/on_select",
+              "host": [
+                "{{bpp_adapter_url}}"
+              ],
+              "path": [
+                "on_select"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "06 · on_init (BPP → BAP)",
+      "item": [
+        {
+          "name": "06 · on_init (BPP → BAP)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"context\": {\n    \"networkId\": \"{{networkId}}\",\n    \"action\": \"on_init\",\n    \"version\": \"{{version}}\",\n    \"transactionId\": \"{{transactionId}}\",\n    \"messageId\": \"msg-init-resp-001\",\n    \"timestamp\": \"2026-07-02T09:02:01.300Z\",\n    \"bapId\": \"{{bapId}}\",\n    \"bapUri\": \"{{bapUri}}\",\n    \"bppId\": \"{{bppId}}\",\n    \"bppUri\": \"{{bppUri}}\",\n    \"schemaContext\": [\n      \"https://schema.beckn.io/CancellationTerms/v1.0/context.jsonld\"\n    ]\n  },\n  \"message\": {\n    \"contract\": {\n      \"id\": \"contract-ont-hjdubai-f4a8b3c2\",\n      \"status\": {\n        \"code\": \"DRAFT\"\n      },\n      \"commitments\": [\n        {\n          \"id\": \"commitment-room-1\",\n          \"status\": {\n            \"descriptor\": {\n              \"code\": \"DRAFT\"\n            }\n          },\n          \"resources\": [\n            {\n              \"id\": \"res-OT000068509-deluxe-twin\",\n              \"quantity\": {\n                \"count\": 1\n              },\n              \"descriptor\": {\n                \"name\": \"Deluxe Room Twin\",\n                \"shortDesc\": \"2 Single Beds · 10–12 Jul 2026\"\n              }\n            }\n          ],\n          \"offer\": {\n            \"id\": \"offer-OT000068509-NRF-RO-001\",\n            \"resourceIds\": [\n              \"res-OT000068509-deluxe-twin\"\n            ],\n            \"offerAttributes\": {\n              \"@context\": \"https://schema.beckn.io/CancellationTerms/v1.0/context.jsonld\",\n              \"@type\": \"ct:CancellationTerms\",\n              \"verifiedTotalAmount\": 117.26,\n              \"verifiedTotalCurrency\": \"USD\",\n              \"contractComment\": \"\",\n              \"bookingPermitted\": \"yes\",\n              \"unitSoldOut\": \"No\",\n              \"statusMessage\": \"You are making a booking within cancellation policy.\",\n              \"refundabilityLabel\": \"Non-Refundable\",\n              \"bindingCancellationWindows\": [\n                {\n                  \"windowStart\": \"2024-12-31T12:34:00+04:00\",\n                  \"windowEnd\": \"2026-07-10T04:00:00+04:00\",\n                  \"chargeAmount\": 117.27\n                }\n              ],\n              \"amendmentTerms\": \"\",\n              \"noShowTerms\": \"\",\n              \"priceChanged\": \"no\",\n              \"priceMovementAmount\": 0\n            }\n          }\n        }\n      ],\n      \"consideration\": [\n        {\n          \"id\": \"cons-room-1-total\",\n          \"considerationAttributes\": {\n            \"@context\": \"https://schema.beckn.io/PriceSpecification/v2.2/context.jsonld\",\n            \"@type\": \"PriceSpecification\",\n            \"value\": 117.26,\n            \"currency\": \"USD\",\n            \"description\": \"Total for 2 nights — Deluxe Room Twin, Room Only (verified)\",\n            \"valueAddedTaxIncluded\": false\n          },\n          \"status\": {\n            \"code\": \"PENDING\"\n          }\n        }\n      ],\n      \"participants\": [\n        {\n          \"id\": \"part-traveller-c517eea7\",\n          \"role\": \"BOOKER\"\n        },\n        {\n          \"id\": \"hotel-hjdubai-OT000068509\",\n          \"role\": \"PROVIDER\"\n        }\n      ]\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{bpp_adapter_url}}/on_init",
+              "host": [
+                "{{bpp_adapter_url}}"
+              ],
+              "path": [
+                "on_init"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "08 · on_confirm (BPP → BAP)",
+      "item": [
+        {
+          "name": "08 · on_confirm (BPP → BAP)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"context\": {\n    \"networkId\": \"{{networkId}}\",\n    \"action\": \"on_confirm\",\n    \"version\": \"{{version}}\",\n    \"transactionId\": \"{{transactionId}}\",\n    \"messageId\": \"msg-confirm-resp-001\",\n    \"timestamp\": \"2026-07-02T09:03:05.000Z\",\n    \"bapId\": \"{{bapId}}\",\n    \"bapUri\": \"{{bapUri}}\",\n    \"bppId\": \"{{bppId}}\",\n    \"bppUri\": \"{{bppUri}}\",\n    \"schemaContext\": [\n      \"https://schema.beckn.io/AccommodationReservation/v1.0/context.jsonld\",\n      \"https://schema.beckn.io/GuestManifest/v1.0/context.jsonld\"\n    ]\n  },\n  \"message\": {\n    \"contract\": {\n      \"id\": \"contract-ont-hjdubai-f4a8b3c2\",\n      \"status\": {\n        \"code\": \"ACTIVE\"\n      },\n      \"commitments\": [\n        {\n          \"id\": \"commitment-room-1\",\n          \"status\": {\n            \"descriptor\": {\n              \"code\": \"ACTIVE\"\n            }\n          },\n          \"resources\": [\n            {\n              \"id\": \"res-OT000068509-deluxe-twin\",\n              \"quantity\": {\n                \"count\": 1\n              },\n              \"descriptor\": {\n                \"name\": \"Deluxe Room Twin\",\n                \"shortDesc\": \"2 Single Beds · 10–12 Jul 2026\"\n              }\n            }\n          ],\n          \"offer\": {\n            \"id\": \"offer-OT000068509-NRF-RO-001\",\n            \"resourceIds\": [\n              \"res-OT000068509-deluxe-twin\"\n            ]\n          },\n          \"commitmentAttributes\": {\n            \"@context\": \"https://schema.beckn.io/GuestManifest/v1.0/context.jsonld\",\n            \"@type\": \"gm:GuestManifest\",\n            \"passengers\": [\n              {\n                \"salutation\": \"Mr\",\n                \"firstName\": \"THAM\",\n                \"lastName\": \"ALSA\",\n                \"passengerType\": \"adult\"\n              },\n              {\n                \"salutation\": \"Mr\",\n                \"firstName\": \"KHAD\",\n                \"lastName\": \"DAR\",\n                \"passengerType\": \"adult\"\n              },\n              {\n                \"salutation\": \"Child\",\n                \"firstName\": \"SMAA\",\n                \"lastName\": \"ALSA\",\n                \"passengerType\": \"child\",\n                \"age\": 7\n              }\n            ],\n            \"specialRequest\": \"non smoking room\",\n            \"specialRequestDisclaimer\": \"Special Requests are not guaranteed & are subject to availability upon check in at the hotel.\"\n          }\n        }\n      ],\n      \"consideration\": [\n        {\n          \"id\": \"cons-room-1-total\",\n          \"considerationAttributes\": {\n            \"@context\": \"https://schema.beckn.io/PriceSpecification/v2.2/context.jsonld\",\n            \"@type\": \"PriceSpecification\",\n            \"value\": 117.26,\n            \"currency\": \"USD\",\n            \"description\": \"Total for 2 nights — Deluxe Room Twin, Room Only\",\n            \"valueAddedTaxIncluded\": false\n          },\n          \"status\": {\n            \"code\": \"ACTIVE\"\n          }\n        }\n      ],\n      \"participants\": [\n        {\n          \"id\": \"part-traveller-c517eea7\",\n          \"role\": \"BOOKER\",\n          \"descriptor\": {\n            \"name\": \"THAM ALSA\"\n          }\n        },\n        {\n          \"id\": \"hotel-hjdubai-OT000068509\",\n          \"role\": \"PROVIDER\",\n          \"descriptor\": {\n            \"name\": \"HOWARD JOHNSON PLAZA BY WYNDHAM DUBAI DEIRA\"\n          }\n        }\n      ],\n      \"contractAttributes\": {\n        \"@context\": \"https://schema.beckn.io/AccommodationReservation/v1.0/context.jsonld\",\n        \"@type\": \"ares:AccommodationReservation\",\n        \"bookingReference\": \"OT2601499261\",\n        \"agentReference\": \"c517eea7eaeadc402b82\",\n        \"networkConfirmationRef\": \"\",\n        \"propertyConfirmationRef\": \"\",\n        \"reservationStatus\": \"vouchered\",\n        \"bookingDate\": \"2026-07-02 09:03:03\",\n        \"cancellationDeadline\": \"2024-12-30 11:55:00\",\n        \"totalChargeAmount\": 117.26,\n        \"grossAmount\": \"117.26\",\n        \"chargeCurrency\": \"USD\",\n        \"leadSalutation\": \"Mr\",\n        \"leadFirstName\": \"THAM\",\n        \"leadLastName\": \"ALSA\",\n        \"localPropertyId\": \"OT000068509\",\n        \"propertyName\": \"HOWARD JOHNSON PLAZA BY WYNDHAM DUBAI DEIRA\",\n        \"propertyAddress\": \"\",\n        \"propertyPhone\": \"\",\n        \"propertyRating\": \"4.0\",\n        \"propertyCountry\": \"United Arab Emirates\",\n        \"propertyCity\": \"Dubai\",\n        \"checkInDate\": \"2026-07-10\",\n        \"checkOutDate\": \"2026-07-12\",\n        \"selectedNights\": \"2\",\n        \"totalRooms\": \"1\",\n        \"totalAdults\": \"2\",\n        \"totalChildren\": \"1\",\n        \"roomDetail\": [\n          {\n            \"roomTypeDescription\": \"Deluxe Room Twin -NRF-RO : 2 Pax ,1 child\",\n            \"numberOfRooms\": \"1\"\n          }\n        ],\n        \"specialRemark\": \"Special Requests are not guaranteed & are subject to availability upon check in at the hotel.\",\n        \"contractComments\": \"Rates are subject to applicable government taxes at the time of arrival, Government tax may be introduced at any time and will be applicable to all bookings.\"\n      }\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{bpp_adapter_url}}/on_confirm",
+              "host": [
+                "{{bpp_adapter_url}}"
+              ],
+              "path": [
+                "on_confirm"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "10 · on_status (BPP → BAP)",
+      "item": [
+        {
+          "name": "10 · on_status (BPP → BAP)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"context\": {\n    \"networkId\": \"{{networkId}}\",\n    \"action\": \"on_status\",\n    \"version\": \"{{version}}\",\n    \"transactionId\": \"{{transactionId}}\",\n    \"messageId\": \"msg-status-resp-001\",\n    \"timestamp\": \"2026-07-02T11:00:01.200Z\",\n    \"bapId\": \"{{bapId}}\",\n    \"bapUri\": \"{{bapUri}}\",\n    \"bppId\": \"{{bppId}}\",\n    \"bppUri\": \"{{bppUri}}\",\n    \"schemaContext\": [\n      \"https://schema.beckn.io/AccommodationReservation/v1.0/context.jsonld\"\n    ]\n  },\n  \"message\": {\n    \"contract\": {\n      \"id\": \"contract-ont-hjdubai-f4a8b3c2\",\n      \"status\": {\n        \"code\": \"ACTIVE\"\n      },\n      \"commitments\": [\n        {\n          \"id\": \"commitment-room-1\",\n          \"status\": {\n            \"descriptor\": {\n              \"code\": \"ACTIVE\"\n            }\n          },\n          \"resources\": [\n            {\n              \"id\": \"res-OT000068509-deluxe-twin\",\n              \"quantity\": {\n                \"count\": 1\n              }\n            }\n          ],\n          \"offer\": {\n            \"id\": \"offer-OT000068509-NRF-RO-001\",\n            \"resourceIds\": [\n              \"res-OT000068509-deluxe-twin\"\n            ]\n          }\n        }\n      ],\n      \"contractAttributes\": {\n        \"@context\": \"https://schema.beckn.io/AccommodationReservation/v1.0/context.jsonld\",\n        \"@type\": \"ares:AccommodationReservation\",\n        \"bookingReference\": \"OT2601499261\",\n        \"agentReference\": \"c517eea7eaeadc402b82\",\n        \"networkConfirmationRef\": \"GOC067QMO\",\n        \"propertyConfirmationRef\": \"\",\n        \"reservationStatus\": \"vouchered\",\n        \"bookingDate\": \"2026-07-02 09:03:03\",\n        \"cancellationDeadline\": \"2024-12-30 11:55:00\",\n        \"totalChargeAmount\": 117.26,\n        \"chargeCurrency\": \"USD\",\n        \"leadSalutation\": \"Mr\",\n        \"leadFirstName\": \"THAM\",\n        \"leadLastName\": \"ALSA\",\n        \"localPropertyId\": \"OT000068509\",\n        \"propertyName\": \"HOWARD JOHNSON PLAZA BY WYNDHAM DUBAI DEIRA\",\n        \"propertyAddress\": \"26 B St - Deira - Dubai - United Arab Emirates\",\n        \"propertyPhone\": \"+971-4-000-0000\",\n        \"propertyRating\": \"4.0\",\n        \"propertyCountry\": \"United Arab Emirates\",\n        \"propertyCity\": \"Dubai\",\n        \"checkInDate\": \"2026-07-10\",\n        \"checkOutDate\": \"2026-07-12\",\n        \"selectedNights\": \"2\",\n        \"totalRooms\": \"1\",\n        \"totalAdults\": \"2\",\n        \"totalChildren\": \"1\",\n        \"roomDetail\": [\n          {\n            \"roomTypeDescription\": \"Deluxe Room Twin -NRF-RO : 2 Pax ,1 child\",\n            \"numberOfRooms\": \"1\",\n            \"roomType\": \"double\"\n          }\n        ],\n        \"cancellationPolicyText\": \"Charges - 117.27 USD applicable if cancelled between 2024-12-31 12:34:00 +0400 and 2026-07-10 04:00:00 +0400. No shows and early check-outs are subject to a 100% cancellation charge.\",\n        \"contractComments\": \"Rates are subject to applicable government taxes at the time of arrival.\"\n      }\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{bpp_adapter_url}}/on_status",
+              "host": [
+                "{{bpp_adapter_url}}"
+              ],
+              "path": [
+                "on_status"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "12 · on_cancel — Quote (BPP → BAP, try=true)",
+      "item": [
+        {
+          "name": "12 · on_cancel — Quote (BPP → BAP, try=true)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"context\": {\n    \"networkId\": \"{{networkId}}\",\n    \"action\": \"on_cancel\",\n    \"version\": \"{{version}}\",\n    \"transactionId\": \"{{transactionId}}\",\n    \"messageId\": \"msg-cq-resp-001\",\n    \"timestamp\": \"2026-07-05T14:00:01.100Z\",\n    \"bapId\": \"{{bapId}}\",\n    \"bapUri\": \"{{bapUri}}\",\n    \"bppId\": \"{{bppId}}\",\n    \"bppUri\": \"{{bppUri}}\",\n    \"try\": true,\n    \"schemaContext\": [\n      \"https://schema.beckn.io/CancellationTerms/v1.0/context.jsonld\"\n    ]\n  },\n  \"message\": {\n    \"contract\": {\n      \"id\": \"contract-ont-hjdubai-f4a8b3c2\",\n      \"status\": {\n        \"code\": \"ACTIVE\"\n      },\n      \"commitments\": [\n        {\n          \"id\": \"commitment-room-1\",\n          \"status\": {\n            \"descriptor\": {\n              \"code\": \"ACTIVE\"\n            }\n          },\n          \"resources\": [\n            {\n              \"id\": \"res-OT000068509-deluxe-twin\",\n              \"quantity\": {\n                \"count\": 1\n              }\n            }\n          ],\n          \"offer\": {\n            \"id\": \"offer-OT000068509-NRF-RO-001\",\n            \"resourceIds\": [\n              \"res-OT000068509-deluxe-twin\"\n            ],\n            \"offerAttributes\": {\n              \"@context\": \"https://schema.beckn.io/CancellationTerms/v1.0/context.jsonld\",\n              \"@type\": \"ct:CancellationTerms\",\n              \"cancellationChargeQuote\": {\n                \"allowCancel\": \"yes\",\n                \"chargeAmount\": \"117.26\",\n                \"chargeCurrency\": \"USD\",\n                \"quoteMessage\": \"Cancelling now costs 117.26 USD — full booking amount forfeited as this is a non-refundable rate.\"\n              }\n            }\n          }\n        }\n      ]\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{bpp_adapter_url}}/on_cancel",
+              "host": [
+                "{{bpp_adapter_url}}"
+              ],
+              "path": [
+                "on_cancel"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "14 · on_cancel (BPP → BAP)",
+      "item": [
+        {
+          "name": "14 · on_cancel (BPP → BAP)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"context\": {\n    \"networkId\": \"{{networkId}}\",\n    \"action\": \"on_cancel\",\n    \"version\": \"{{version}}\",\n    \"transactionId\": \"{{transactionId}}\",\n    \"messageId\": \"msg-cancel-resp-001\",\n    \"timestamp\": \"2026-07-05T14:05:09.000Z\",\n    \"bapId\": \"{{bapId}}\",\n    \"bapUri\": \"{{bapUri}}\",\n    \"bppId\": \"{{bppId}}\",\n    \"bppUri\": \"{{bppUri}}\",\n    \"schemaContext\": [\n      \"https://schema.beckn.io/AccommodationReservation/v1.0/context.jsonld\"\n    ]\n  },\n  \"message\": {\n    \"contract\": {\n      \"id\": \"contract-ont-hjdubai-f4a8b3c2\",\n      \"status\": {\n        \"code\": \"CANCELLED\"\n      },\n      \"commitments\": [\n        {\n          \"id\": \"commitment-room-1\",\n          \"status\": {\n            \"descriptor\": {\n              \"code\": \"CLOSED\"\n            }\n          },\n          \"resources\": [\n            {\n              \"id\": \"res-OT000068509-deluxe-twin\",\n              \"quantity\": {\n                \"count\": 1\n              }\n            }\n          ],\n          \"offer\": {\n            \"id\": \"offer-OT000068509-NRF-RO-001\",\n            \"resourceIds\": [\n              \"res-OT000068509-deluxe-twin\"\n            ]\n          }\n        }\n      ],\n      \"contractAttributes\": {\n        \"@context\": \"https://schema.beckn.io/AccommodationReservation/v1.0/context.jsonld\",\n        \"@type\": \"ares:AccommodationReservation\",\n        \"bookingReference\": \"OT2601499261\",\n        \"agentReference\": \"c517eea7eaeadc402b82\",\n        \"networkConfirmationRef\": \"GOC067QMO\",\n        \"reservationStatus\": \"cancelled\",\n        \"checkInDate\": \"2026-07-10\",\n        \"checkOutDate\": \"2026-07-12\",\n        \"localPropertyId\": \"OT000068509\",\n        \"propertyName\": \"HOWARD JOHNSON PLAZA BY WYNDHAM DUBAI DEIRA\",\n        \"totalChargeAmount\": 117.26,\n        \"chargeCurrency\": \"USD\",\n        \"cancellationDate\": \"2026-07-05T14:05:09.000Z\",\n        \"cancellationChargeAmount\": 117.26,\n        \"cancellationChargeCurrency\": \"USD\",\n        \"refundAmount\": 0,\n        \"refundCurrency\": \"USD\"\n      }\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{bpp_adapter_url}}/on_cancel",
+              "host": [
+                "{{bpp_adapter_url}}"
+              ],
+              "path": [
+                "on_cancel"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "networkId",
+      "value": "nfh.global/testnet"
+    },
+    {
+      "key": "version",
+      "value": "2.0.0"
+    },
+    {
+      "key": "bapId",
+      "value": "bap.example.com"
+    },
+    {
+      "key": "bapUri",
+      "value": "http://onix-bap:8081/bap/receiver"
+    },
+    {
+      "key": "bppId",
+      "value": "bpp.example.com"
+    },
+    {
+      "key": "bppUri",
+      "value": "http://onix-bpp:8082/bpp/receiver"
+    },
+    {
+      "key": "transactionId",
+      "value": "a1b2c3d4-e5f6-4789-abcd-ef0123456789"
+    },
+    {
+      "key": "bap_adapter_url",
+      "value": "http://localhost:8081/bap/caller"
+    },
+    {
+      "key": "bpp_adapter_url",
+      "value": "http://localhost:8082/bpp/caller"
+    }
+  ]
+}

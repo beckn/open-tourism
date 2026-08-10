@@ -1,0 +1,26 @@
+{
+  "id": "https://schema.beckn.io/AccommodationRate/v1.0",
+  "name": "AccommodationRate",
+  "version": "1.0.0",
+  "protocol_version": "2.0",
+  "semantic_model": "generalised",
+  "included_schemas": ["AccommodationRate"],
+  "beckn_container": "offerAttributes",
+  "discovery_fields": [
+    "unitCategory", "unitTypeDescription", "mealBasisCode", "mealBasisLabel",
+    "totalRateAmount", "rateCurrency", "nightlyRates", "refundable",
+    "adultsCount", "childrenCount", "childAges", "unitCount",
+    "available", "rateNote", "indicativeCancellationWindows", "sessionExpiresAt"
+  ],
+  "indexable_paths": [
+    "unitCategory", "mealBasisCode", "refundable", "rateCurrency", "available"
+  ],
+  "filterable_paths": [
+    "unitCategory", "mealBasisCode", "refundable",
+    "totalRateAmount", "adultsCount", "childrenCount"
+  ],
+  "sortable_paths": [
+    "totalRateAmount", "unitCategory"
+  ],
+  "privacy_notes": []
+}

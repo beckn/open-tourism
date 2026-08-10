@@ -1,0 +1,44 @@
+{
+  "@context": {
+    "@import": "https://schema.beckn.io/core/v2/vocab.jsonld",
+    "ct": "https://schema.beckn.io/CancellationTerms#",
+    "schema": "https://schema.org/",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "owl": "http://www.w3.org/2002/07/owl#"
+  },
+  "@graph": [
+    {
+      "@id": "ct:CancellationTerms",
+      "@type": "rdfs:Class",
+      "rdfs:label": "CancellationTerms",
+      "rdfs:comment": "Binding cancellation and refund terms confirmed at the pre-commit check stage for an accommodation offer on the ONT network."
+    },
+    {
+      "@id": "ct:bookingPermitted",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": { "@id": "ct:CancellationTerms" },
+      "rdfs:label": "bookingPermitted",
+      "rdfs:comment": "Whether the booking may proceed at the moment of the pre-commit check."
+    },
+    {
+      "@id": "ct:unitSoldOut",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": { "@id": "ct:CancellationTerms" },
+      "rdfs:label": "unitSoldOut",
+      "rdfs:comment": "Whether the selected unit has sold out since the discovery session."
+    },
+    {
+      "@id": "ct:priceChanged",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": { "@id": "ct:CancellationTerms" },
+      "rdfs:label": "priceChanged",
+      "rdfs:comment": "Whether the unit price moved between the discovery session and the pre-commit check."
+    },
+    {
+      "@id": "ct:CancellationChargeQuote",
+      "@type": "rdfs:Class",
+      "rdfs:label": "CancellationChargeQuote",
+      "rdfs:comment": "A point-in-time cancellation charge quotation computed from the binding policy at the moment of the cancel-quote request."
+    }
+  ]
+}

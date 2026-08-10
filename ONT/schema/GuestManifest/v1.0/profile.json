@@ -1,0 +1,22 @@
+{
+  "id": "https://schema.beckn.io/GuestManifest/v1.0",
+  "name": "GuestManifest",
+  "version": "1.0.0",
+  "protocol_version": "2.0",
+  "semantic_model": "generalised",
+  "included_schemas": ["GuestManifest"],
+  "beckn_container": "commitmentAttributes",
+  "discovery_fields": [
+    "passengers", "specialRequest", "specialRequestDisclaimer", "consentArtifact"
+  ],
+  "indexable_paths": [],
+  "filterable_paths": [],
+  "sortable_paths": [],
+  "privacy_notes": [
+    "Contains PII: guest names (salutation, firstName, lastName) and child ages. MUST NOT appear in on_discover or on_select.",
+    "Conveyed only to the fulfilling property and its supply system under purpose-bound consent.",
+    "Child ages used solely for rate eligibility and occupancy — not retained for profiling.",
+    "specialRequest may contain PII if traveller includes personal information.",
+    "consentArtifact must be present before this manifest is transmitted over the network."
+  ]
+}

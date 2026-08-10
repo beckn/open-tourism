@@ -1,0 +1,67 @@
+{
+  "@context": {
+    "@import": "https://schema.beckn.io/core/v2/vocab.jsonld",
+    "acr": "https://schema.beckn.io/AccommodationRate#",
+    "schema": "https://schema.org/",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "skos": "http://www.w3.org/2004/02/skos/core#"
+  },
+  "@graph": [
+    {
+      "@id": "acr:AccommodationRate",
+      "@type": "rdfs:Class",
+      "rdfs:subClassOf": { "@id": "schema:Offer" },
+      "rdfs:label": "AccommodationRate",
+      "rdfs:comment": "A live-priced accommodation rate for a specific unit-rate combination within a 20-minute search session on the ONT network."
+    },
+    {
+      "@id": "acr:MealBasis",
+      "@type": "rdfs:Class",
+      "rdfs:label": "MealBasis",
+      "rdfs:comment": "The meal plan included in an accommodation rate."
+    },
+    {
+      "@id": "acr:RoomOnly",
+      "@type": "acr:MealBasis",
+      "skos:broader": { "@id": "acr:MealBasis" },
+      "rdfs:label": "RoomOnly",
+      "rdfs:comment": "Accommodation only — no meals included."
+    },
+    {
+      "@id": "acr:BedAndBreakfast",
+      "@type": "acr:MealBasis",
+      "skos:broader": { "@id": "acr:MealBasis" },
+      "rdfs:label": "BedAndBreakfast",
+      "rdfs:comment": "Accommodation with breakfast included."
+    },
+    {
+      "@id": "acr:HalfBoard",
+      "@type": "acr:MealBasis",
+      "skos:broader": { "@id": "acr:MealBasis" },
+      "rdfs:label": "HalfBoard",
+      "rdfs:comment": "Accommodation with breakfast and dinner included."
+    },
+    {
+      "@id": "acr:FullBoard",
+      "@type": "acr:MealBasis",
+      "skos:broader": { "@id": "acr:MealBasis" },
+      "rdfs:label": "FullBoard",
+      "rdfs:comment": "Accommodation with all three daily meals included."
+    },
+    {
+      "@id": "acr:AllInclusive",
+      "@type": "acr:MealBasis",
+      "skos:broader": { "@id": "acr:MealBasis" },
+      "rdfs:label": "AllInclusive",
+      "rdfs:comment": "Accommodation with all meals and typically beverages."
+    },
+    {
+      "@id": "acr:refundable",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": { "@id": "acr:AccommodationRate" },
+      "rdfs:label": "refundable",
+      "rdfs:comment": "Whether the rate allows cancellation with at least a partial refund."
+    }
+  ]
+}

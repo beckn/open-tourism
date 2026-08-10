@@ -1,0 +1,40 @@
+{
+  "@context": {
+    "@import": "https://schema.beckn.io/core/v2/vocab.jsonld",
+    "ar": "https://schema.beckn.io/AccommodationResource#",
+    "schema": "https://schema.org/",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "skos": "http://www.w3.org/2004/02/skos/core#"
+  },
+  "@graph": [
+    {
+      "@id": "ar:AccommodationResource",
+      "@type": "rdfs:Class",
+      "rdfs:subClassOf": { "@id": "schema:LodgingBusiness" },
+      "rdfs:label": "AccommodationResource",
+      "rdfs:comment": "A bookable accommodation unit type (hotel room, apartment, villa, or homestay unit) at a named property, published on the ONT network as a static catalog resource."
+    },
+    {
+      "@id": "ar:localPropertyId",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": { "@id": "ar:AccommodationResource" },
+      "rdfs:label": "localPropertyId",
+      "rdfs:comment": "Stable supply-system identifier for the accommodation property. Persists across search sessions."
+    },
+    {
+      "@id": "ar:propertyAmenities",
+      "@type": "owl:ObjectProperty",
+      "rdfs:subPropertyOf": { "@id": "schema:amenityFeature" },
+      "rdfs:label": "propertyAmenities",
+      "rdfs:comment": "Property-level amenities available to all guests."
+    },
+    {
+      "@id": "ar:unitAmenities",
+      "@type": "owl:ObjectProperty",
+      "rdfs:subPropertyOf": { "@id": "schema:amenityFeature" },
+      "rdfs:label": "unitAmenities",
+      "rdfs:comment": "Amenities present in the accommodation unit itself."
+    }
+  ]
+}

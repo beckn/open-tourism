@@ -1,0 +1,317 @@
+{
+  "info": {
+    "_postman_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+    "name": "BAP:ONT UC1 — Hotel Booking (v2)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "01a · discover — Static (BAP → DS)",
+      "item": [
+        {
+          "name": "01a · discover — Static (BAP → DS)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"context\": {\n    \"networkId\": \"{{networkId}}\",\n    \"action\": \"discover\",\n    \"version\": \"{{version}}\",\n    \"transactionId\": \"txn-static-AE-Dubai-20260702\",\n    \"messageId\": \"msg-disc-static-001\",\n    \"timestamp\": \"2026-07-02T08:55:00.000Z\",\n    \"bapId\": \"{{bapId}}\",\n    \"bapUri\": \"{{bapUri}}\",\n    \"bppId\": \"{{bppId}}\",\n    \"bppUri\": \"{{bppUri}}\",\n    \"schemaContext\": [\n      \"https://schema.beckn.io/AccommodationResource/v1.0/context.jsonld\"\n    ]\n  },\n  \"message\": {\n    \"intent\": {\n      \"textSearch\": \"4-star or 5-star hotels in Dubai\",\n      \"filters\": {\n        \"type\": \"jsonpath\",\n        \"expression\": \"$.catalogs[*].resources[*] ? (@.resourceAttributes.starRating >= 4 && @.resourceAttributes.localPropertyId != null)\"\n      }\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{bap_adapter_url}}/discover",
+              "host": [
+                "{{bap_adapter_url}}"
+              ],
+              "path": [
+                "discover"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "01b · discover — Dynamic (BAP → DS)",
+      "item": [
+        {
+          "name": "01b · discover — Dynamic (BAP → DS)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"context\": {\n    \"networkId\": \"{{networkId}}\",\n    \"action\": \"discover\",\n    \"version\": \"{{version}}\",\n    \"transactionId\": \"{{transactionId}}\",\n    \"messageId\": \"msg-disc-live-001\",\n    \"timestamp\": \"2026-07-02T09:00:00.000Z\",\n    \"bapId\": \"{{bapId}}\",\n    \"bapUri\": \"{{bapUri}}\",\n    \"bppId\": \"{{bppId}}\",\n    \"bppUri\": \"{{bppUri}}\",\n    \"schemaContext\": [\n      \"https://schema.beckn.io/AccommodationResource/v1.0/context.jsonld\",\n      \"https://schema.beckn.io/AccommodationRate/v1.0/context.jsonld\"\n    ]\n  },\n  \"message\": {\n    \"intent\": {\n      \"textSearch\": \"3–5 star hotels in Dubai, 10–12 July 2026, 2 adults and 1 child age 7, USD\",\n      \"filters\": {\n        \"type\": \"jsonpath\",\n        \"expression\": \"$.catalogs[*].offers[*] ? (@.offerAttributes.available == 1)\"\n      }\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{bap_adapter_url}}/discover",
+              "host": [
+                "{{bap_adapter_url}}"
+              ],
+              "path": [
+                "discover"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "03 · select",
+      "item": [
+        {
+          "name": "03 · select",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"context\": {\n    \"networkId\": \"{{networkId}}\",\n    \"action\": \"select\",\n    \"version\": \"{{version}}\",\n    \"transactionId\": \"{{transactionId}}\",\n    \"messageId\": \"msg-sel-001\",\n    \"timestamp\": \"2026-07-02T09:01:00.000Z\",\n    \"bapId\": \"{{bapId}}\",\n    \"bapUri\": \"{{bapUri}}\",\n    \"bppId\": \"{{bppId}}\",\n    \"bppUri\": \"{{bppUri}}\"\n  },\n  \"message\": {\n    \"contract\": {\n      \"status\": {\n        \"code\": \"DRAFT\"\n      },\n      \"commitments\": [\n        {\n          \"id\": \"commitment-room-1\",\n          \"status\": {\n            \"descriptor\": {\n              \"code\": \"DRAFT\"\n            }\n          },\n          \"resources\": [\n            {\n              \"id\": \"res-OT000068509-deluxe-twin\",\n              \"quantity\": {\n                \"count\": 1\n              }\n            }\n          ],\n          \"offer\": {\n            \"id\": \"offer-OT000068509-NRF-RO-001\",\n            \"resourceIds\": [\n              \"res-OT000068509-deluxe-twin\"\n            ]\n          }\n        }\n      ],\n      \"participants\": [\n        {\n          \"id\": \"part-traveller-c517eea7\"\n        }\n      ]\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{bap_adapter_url}}/select",
+              "host": [
+                "{{bap_adapter_url}}"
+              ],
+              "path": [
+                "select"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "05 · init",
+      "item": [
+        {
+          "name": "05 · init",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"context\": {\n    \"networkId\": \"{{networkId}}\",\n    \"action\": \"init\",\n    \"version\": \"{{version}}\",\n    \"transactionId\": \"{{transactionId}}\",\n    \"messageId\": \"msg-init-001\",\n    \"timestamp\": \"2026-07-02T09:02:00.000Z\",\n    \"bapId\": \"{{bapId}}\",\n    \"bapUri\": \"{{bapUri}}\",\n    \"bppId\": \"{{bppId}}\",\n    \"bppUri\": \"{{bppUri}}\",\n    \"schemaContext\": [\n      \"https://schema.beckn.io/GuestManifest/v1.0/context.jsonld\"\n    ]\n  },\n  \"message\": {\n    \"contract\": {\n      \"id\": \"contract-ont-hjdubai-f4a8b3c2\",\n      \"status\": {\n        \"code\": \"DRAFT\"\n      },\n      \"commitments\": [\n        {\n          \"id\": \"commitment-room-1\",\n          \"status\": {\n            \"descriptor\": {\n              \"code\": \"DRAFT\"\n            }\n          },\n          \"resources\": [\n            {\n              \"id\": \"res-OT000068509-deluxe-twin\",\n              \"quantity\": {\n                \"count\": 1\n              }\n            }\n          ],\n          \"offer\": {\n            \"id\": \"offer-OT000068509-NRF-RO-001\",\n            \"resourceIds\": [\n              \"res-OT000068509-deluxe-twin\"\n            ]\n          }\n        }\n      ],\n      \"consideration\": [\n        {\n          \"id\": \"cons-room-1-total\",\n          \"considerationAttributes\": {\n            \"@context\": \"https://schema.beckn.io/PriceSpecification/v2.2/context.jsonld\",\n            \"@type\": \"PriceSpecification\",\n            \"value\": 117.26,\n            \"currency\": \"USD\",\n            \"description\": \"Total for 2 nights — Deluxe Room Twin, Room Only\",\n            \"valueAddedTaxIncluded\": false\n          },\n          \"status\": {\n            \"code\": \"PENDING\"\n          }\n        }\n      ],\n      \"participants\": [\n        {\n          \"id\": \"part-traveller-c517eea7\",\n          \"role\": \"BOOKER\",\n          \"descriptor\": {\n            \"name\": \"THAM ALSA\",\n            \"shortDesc\": \"Lead guest and booker — Indian national travelling to UAE\"\n          }\n        },\n        {\n          \"id\": \"hotel-hjdubai-OT000068509\",\n          \"role\": \"PROVIDER\",\n          \"descriptor\": {\n            \"name\": \"HOWARD JOHNSON PLAZA BY WYNDHAM DUBAI DEIRA\",\n            \"shortDesc\": \"4-star hotel — 26 B St, Deira, Dubai\"\n          }\n        }\n      ],\n      \"contractAttributes\": {\n        \"@context\": \"https://schema.beckn.io/GuestManifest/v1.0/context.jsonld\",\n        \"@type\": \"gm:GuestManifest\",\n        \"agentReference\": \"c517eea7eaeadc402b82\",\n        \"passengers\": [\n          {\n            \"salutation\": \"Mr\",\n            \"firstName\": \"THAM\",\n            \"lastName\": \"ALSA\",\n            \"passengerType\": \"adult\"\n          },\n          {\n            \"salutation\": \"Mr\",\n            \"firstName\": \"KHAD\",\n            \"lastName\": \"DAR\",\n            \"passengerType\": \"adult\"\n          },\n          {\n            \"salutation\": \"Child\",\n            \"firstName\": \"SMAA\",\n            \"lastName\": \"ALSA\",\n            \"passengerType\": \"child\",\n            \"age\": 7\n          }\n        ],\n        \"specialRequest\": \"non smoking room\",\n        \"consentArtifact\": {\n          \"consentId\": \"consent-txn-f4a8b3c2-room-1\",\n          \"subject\": \"THAM ALSA, KHAD DAR, SMAA ALSA (minor — consented by THAM ALSA)\",\n          \"purpose\": \"Fulfilment of hotel stay at Howard Johnson Plaza Dubai Deira, 10–12 July 2026\",\n          \"scope\": [\n            \"guest names\",\n            \"child age\",\n            \"special request\"\n          ],\n          \"grantedAt\": \"2026-07-02T09:01:55.000Z\",\n          \"expiresAt\": \"2026-07-31T23:59:59.000Z\",\n          \"mechanism\": \"EXPLICIT_CLICK_THROUGH\",\n          \"mediator\": \"{{bapId}}\"\n        }\n      }\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{bap_adapter_url}}/init",
+              "host": [
+                "{{bap_adapter_url}}"
+              ],
+              "path": [
+                "init"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "07 · confirm",
+      "item": [
+        {
+          "name": "07 · confirm",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"context\": {\n    \"networkId\": \"{{networkId}}\",\n    \"action\": \"confirm\",\n    \"version\": \"{{version}}\",\n    \"transactionId\": \"{{transactionId}}\",\n    \"messageId\": \"msg-confirm-001\",\n    \"timestamp\": \"2026-07-02T09:03:00.000Z\",\n    \"bapId\": \"{{bapId}}\",\n    \"bapUri\": \"{{bapUri}}\",\n    \"bppId\": \"{{bppId}}\",\n    \"bppUri\": \"{{bppUri}}\",\n    \"schemaContext\": [\n      \"https://schema.beckn.io/GuestManifest/v1.0/context.jsonld\"\n    ]\n  },\n  \"message\": {\n    \"contract\": {\n      \"id\": \"contract-ont-hjdubai-f4a8b3c2\",\n      \"status\": {\n        \"code\": \"DRAFT\"\n      },\n      \"commitments\": [\n        {\n          \"id\": \"commitment-room-1\",\n          \"status\": {\n            \"descriptor\": {\n              \"code\": \"DRAFT\"\n            }\n          },\n          \"resources\": [\n            {\n              \"id\": \"res-OT000068509-deluxe-twin\",\n              \"quantity\": {\n                \"count\": 1\n              }\n            }\n          ],\n          \"offer\": {\n            \"id\": \"offer-OT000068509-NRF-RO-001\",\n            \"resourceIds\": [\n              \"res-OT000068509-deluxe-twin\"\n            ]\n          }\n        }\n      ],\n      \"consideration\": [\n        {\n          \"id\": \"cons-room-1-total\",\n          \"considerationAttributes\": {\n            \"@context\": \"https://schema.beckn.io/PriceSpecification/v2.2/context.jsonld\",\n            \"@type\": \"PriceSpecification\",\n            \"value\": 117.26,\n            \"currency\": \"USD\",\n            \"description\": \"Total for 2 nights — Deluxe Room Twin, Room Only\",\n            \"valueAddedTaxIncluded\": false\n          },\n          \"status\": {\n            \"code\": \"ACTIVE\"\n          }\n        }\n      ],\n      \"participants\": [\n        {\n          \"id\": \"part-traveller-c517eea7\",\n          \"role\": \"BOOKER\",\n          \"descriptor\": {\n            \"name\": \"THAM ALSA\",\n            \"shortDesc\": \"Lead guest and booker\"\n          }\n        },\n        {\n          \"id\": \"hotel-hjdubai-OT000068509\",\n          \"role\": \"PROVIDER\",\n          \"descriptor\": {\n            \"name\": \"HOWARD JOHNSON PLAZA BY WYNDHAM DUBAI DEIRA\"\n          }\n        }\n      ],\n      \"contractAttributes\": {\n        \"@context\": \"https://schema.beckn.io/GuestManifest/v1.0/context.jsonld\",\n        \"@type\": \"gm:GuestManifest\",\n        \"agentReference\": \"c517eea7eaeadc402b82\",\n        \"passengers\": [\n          {\n            \"salutation\": \"Mr\",\n            \"firstName\": \"THAM\",\n            \"lastName\": \"ALSA\",\n            \"passengerType\": \"adult\"\n          },\n          {\n            \"salutation\": \"Mr\",\n            \"firstName\": \"KHAD\",\n            \"lastName\": \"DAR\",\n            \"passengerType\": \"adult\"\n          },\n          {\n            \"salutation\": \"Child\",\n            \"firstName\": \"SMAA\",\n            \"lastName\": \"ALSA\",\n            \"passengerType\": \"child\",\n            \"age\": 7\n          }\n        ],\n        \"specialRequest\": \"non smoking room\",\n        \"consentArtifact\": {\n          \"consentId\": \"consent-txn-f4a8b3c2-room-1\",\n          \"subject\": \"THAM ALSA, KHAD DAR, SMAA ALSA (minor — consented by THAM ALSA)\",\n          \"purpose\": \"Fulfilment of hotel stay at Howard Johnson Plaza Dubai Deira, 10–12 July 2026\",\n          \"scope\": [\n            \"guest names\",\n            \"child age\",\n            \"special request\"\n          ],\n          \"grantedAt\": \"2026-07-02T09:01:55.000Z\",\n          \"expiresAt\": \"2026-07-31T23:59:59.000Z\",\n          \"mechanism\": \"EXPLICIT_CLICK_THROUGH\",\n          \"mediator\": \"{{bapId}}\"\n        }\n      }\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{bap_adapter_url}}/confirm",
+              "host": [
+                "{{bap_adapter_url}}"
+              ],
+              "path": [
+                "confirm"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "09 · status",
+      "item": [
+        {
+          "name": "09 · status",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"context\": {\n    \"networkId\": \"{{networkId}}\",\n    \"action\": \"status\",\n    \"version\": \"{{version}}\",\n    \"transactionId\": \"{{transactionId}}\",\n    \"messageId\": \"msg-status-001\",\n    \"timestamp\": \"2026-07-02T11:00:00.000Z\",\n    \"bapId\": \"{{bapId}}\",\n    \"bapUri\": \"{{bapUri}}\",\n    \"bppId\": \"{{bppId}}\",\n    \"bppUri\": \"{{bppUri}}\"\n  },\n  \"message\": {\n    \"contract\": {\n      \"id\": \"contract-ont-hjdubai-f4a8b3c2\",\n      \"commitments\": [\n        {\n          \"id\": \"commitment-room-1\",\n          \"status\": {\n            \"descriptor\": {\n              \"code\": \"ACTIVE\"\n            }\n          },\n          \"resources\": [\n            {\n              \"id\": \"res-OT000068509-deluxe-twin\",\n              \"quantity\": {\n                \"count\": 1\n              }\n            }\n          ],\n          \"offer\": {\n            \"id\": \"offer-OT000068509-NRF-RO-001\",\n            \"resourceIds\": [\n              \"res-OT000068509-deluxe-twin\"\n            ]\n          }\n        }\n      ]\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{bap_adapter_url}}/status",
+              "host": [
+                "{{bap_adapter_url}}"
+              ],
+              "path": [
+                "status"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "11 · cancel — Quote (try=true)",
+      "item": [
+        {
+          "name": "11 · cancel — Quote (try=true)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"context\": {\n    \"networkId\": \"{{networkId}}\",\n    \"action\": \"cancel\",\n    \"version\": \"{{version}}\",\n    \"transactionId\": \"{{transactionId}}\",\n    \"messageId\": \"msg-cq-001\",\n    \"timestamp\": \"2026-07-05T14:00:00.000Z\",\n    \"bapId\": \"{{bapId}}\",\n    \"bapUri\": \"{{bapUri}}\",\n    \"bppId\": \"{{bppId}}\",\n    \"bppUri\": \"{{bppUri}}\",\n    \"try\": true\n  },\n  \"message\": {\n    \"contract\": {\n      \"id\": \"contract-ont-hjdubai-f4a8b3c2\",\n      \"commitments\": [\n        {\n          \"id\": \"commitment-room-1\",\n          \"status\": {\n            \"descriptor\": {\n              \"code\": \"ACTIVE\"\n            }\n          },\n          \"resources\": [\n            {\n              \"id\": \"res-OT000068509-deluxe-twin\",\n              \"quantity\": {\n                \"count\": 1\n              }\n            }\n          ],\n          \"offer\": {\n            \"id\": \"offer-OT000068509-NRF-RO-001\",\n            \"resourceIds\": [\n              \"res-OT000068509-deluxe-twin\"\n            ]\n          }\n        }\n      ]\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{bap_adapter_url}}/cancel",
+              "host": [
+                "{{bap_adapter_url}}"
+              ],
+              "path": [
+                "cancel"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "13 · cancel — Commit (try=false)",
+      "item": [
+        {
+          "name": "13 · cancel — Commit (try=false)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"context\": {\n    \"networkId\": \"{{networkId}}\",\n    \"action\": \"cancel\",\n    \"version\": \"{{version}}\",\n    \"transactionId\": \"{{transactionId}}\",\n    \"messageId\": \"msg-cancel-001\",\n    \"timestamp\": \"2026-07-05T14:05:00.000Z\",\n    \"bapId\": \"{{bapId}}\",\n    \"bapUri\": \"{{bapUri}}\",\n    \"bppId\": \"{{bppId}}\",\n    \"bppUri\": \"{{bppUri}}\",\n    \"try\": false,\n    \"requestDigest\": {\n      \"digest\": \"BLAKE-512=c517eea7eaeadc402b82cancelf4a8b3c2==\"\n    }\n  },\n  \"message\": {\n    \"contract\": {\n      \"id\": \"contract-ont-hjdubai-f4a8b3c2\",\n      \"commitments\": [\n        {\n          \"id\": \"commitment-room-1\",\n          \"status\": {\n            \"descriptor\": {\n              \"code\": \"ACTIVE\"\n            }\n          },\n          \"resources\": [\n            {\n              \"id\": \"res-OT000068509-deluxe-twin\",\n              \"quantity\": {\n                \"count\": 1\n              }\n            }\n          ],\n          \"offer\": {\n            \"id\": \"offer-OT000068509-NRF-RO-001\",\n            \"resourceIds\": [\n              \"res-OT000068509-deluxe-twin\"\n            ]\n          }\n        }\n      ]\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{bap_adapter_url}}/cancel",
+              "host": [
+                "{{bap_adapter_url}}"
+              ],
+              "path": [
+                "cancel"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "networkId",
+      "value": "nfh.global/testnet"
+    },
+    {
+      "key": "version",
+      "value": "2.0.0"
+    },
+    {
+      "key": "bapId",
+      "value": "bap.example.com"
+    },
+    {
+      "key": "bapUri",
+      "value": "http://onix-bap:8081/bap/receiver"
+    },
+    {
+      "key": "bppId",
+      "value": "bpp.example.com"
+    },
+    {
+      "key": "bppUri",
+      "value": "http://onix-bpp:8082/bpp/receiver"
+    },
+    {
+      "key": "transactionId",
+      "value": "a1b2c3d4-e5f6-4789-abcd-ef0123456789"
+    },
+    {
+      "key": "bap_adapter_url",
+      "value": "http://localhost:8081/bap/caller"
+    },
+    {
+      "key": "bpp_adapter_url",
+      "value": "http://localhost:8082/bpp/caller"
+    }
+  ]
+}

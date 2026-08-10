@@ -1,0 +1,39 @@
+{
+  "id": "https://schema.beckn.io/AccommodationReservation/v1.0",
+  "name": "AccommodationReservation",
+  "version": "1.0.0",
+  "protocol_version": "2.0",
+  "semantic_model": "generalised",
+  "included_schemas": ["AccommodationReservation"],
+  "beckn_container": "contractAttributes",
+  "discovery_fields": [
+    "bookingReference", "agentReference",
+    "networkConfirmationRef", "propertyConfirmationRef",
+    "reservationStatus", "bookingDate", "cancellationDeadline",
+    "totalChargeAmount", "grossAmount", "chargeCurrency",
+    "leadSalutation", "leadFirstName", "leadLastName",
+    "localPropertyId", "propertyName", "propertyAddress",
+    "propertyPhone", "propertyRating", "propertyCountry", "propertyCity",
+    "checkInDate", "checkOutDate", "selectedNights",
+    "totalRooms", "totalAdults", "totalChildren",
+    "roomDetail", "specialRemark", "contractComments",
+    "cancellationPolicyText",
+    "cancellationDate", "cancellationChargeAmount", "cancellationChargeCurrency",
+    "refundAmount", "refundCurrency"
+  ],
+  "indexable_paths": [
+    "bookingReference", "agentReference", "reservationStatus",
+    "checkInDate", "checkOutDate", "localPropertyId"
+  ],
+  "filterable_paths": [
+    "reservationStatus", "checkInDate", "checkOutDate"
+  ],
+  "sortable_paths": [
+    "bookingDate", "checkInDate", "reservationStatus"
+  ],
+  "privacy_notes": [
+    "leadFirstName, leadLastName, leadSalutation contain PII — lead guest name on booking record.",
+    "bookingReference is the grievance anchor — retain for the duration of the financial reconciliation retention window.",
+    "Full guest manifest is in GuestManifest commitmentAttributes, not repeated here."
+  ]
+}
