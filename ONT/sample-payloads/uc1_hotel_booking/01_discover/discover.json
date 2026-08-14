@@ -16,11 +16,21 @@
   },
   "message": {
     "intent": {
-      "textSearch": "4-star or 5-star hotels in Dubai",
       "filters": {
         "type": "jsonpath",
-        "expression": "$.catalogs[*].resources[*] ? (@.resourceAttributes.starRating >= 4 && @.resourceAttributes.localPropertyId != null)"
-      }
+        "expression": "$.catalogs[*].resources[*] ? (@.resourceAttributes.starRating >= 4)"
+      },
+      "spatial": [
+        {
+          "op": "S_DWITHIN",
+          "targets": "$.catalogs[*].provider.availableAt[*].geo",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [55.2708, 25.2048]
+          },
+          "distanceMeters": 50000
+        }
+      ]
     }
   }
 }

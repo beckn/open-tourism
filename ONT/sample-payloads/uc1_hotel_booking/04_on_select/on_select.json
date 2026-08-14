@@ -12,7 +12,8 @@
     "bppUri": "https://otrams-bpp.qtechsoftware.com/beckn",
     "schemaContext": [
       "https://schema.beckn.io/AccommodationResource/v1.0/context.jsonld",
-      "https://schema.beckn.io/AccommodationRate/v1.0/context.jsonld"
+      "https://schema.beckn.io/AccommodationRate/v1.0/context.jsonld",
+      "https://schema.beckn.io/PriceSpecification/v2.2/context.jsonld"
     ]
   },
   "message": {
@@ -105,6 +106,22 @@
               ],
               "sessionExpiresAt": "2026-07-02T09:20:01.200Z"
             }
+          }
+        }
+      ],
+      "consideration": [
+        {
+          "id": "cons-room-1-total",
+          "considerationAttributes": {
+            "@context": "https://schema.beckn.io/PriceSpecification/v2.2/context.jsonld",
+            "@type": "PriceSpecification",
+            "value": 117.26,
+            "currency": "USD",
+            "description": "Total for 2 nights — Deluxe Room Twin, Room Only",
+            "valueAddedTaxIncluded": false
+          },
+          "status": {
+            "code": "PENDING"
           }
         }
       ],

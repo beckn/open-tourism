@@ -17,11 +17,21 @@
   },
   "message": {
     "intent": {
-      "textSearch": "3–5 star hotels in Dubai, 10–12 July 2026, 2 adults and 1 child age 7, USD",
       "filters": {
         "type": "jsonpath",
-        "expression": "$.catalogs[*].offers[*] ? (@.offerAttributes.available == 1)"
-      }
+        "expression": "$.catalogs[*].offers[*] ? (@.offerAttributes.rateCurrency == \"USD\" && @.offerAttributes.adultsCount == 2 && @.offerAttributes.childrenCount == 1)"
+      },
+      "spatial": [
+        {
+          "op": "S_DWITHIN",
+          "targets": "$.catalogs[*].provider.availableAt[*].geo",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [55.2708, 25.2048]
+          },
+          "distanceMeters": 50000
+        }
+      ]
     }
   }
 }
