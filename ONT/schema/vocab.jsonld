@@ -1,0 +1,70 @@
+{
+  "@context": {
+    "@import": "https://schema.beckn.io/core/v2/vocab.jsonld",
+    "ar": "https://schema.beckn.io/AccommodationResource#",
+    "acr": "https://schema.beckn.io/AccommodationRate#",
+    "ares": "https://schema.beckn.io/AccommodationReservation#",
+    "ct": "https://schema.beckn.io/CancellationTerms#",
+    "gm": "https://schema.beckn.io/GuestManifest#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "schema": "https://schema.org/"
+  },
+  "@graph": [
+    {
+      "@id": "ar:ONTSchemaPack",
+      "@type": "owl:Ontology",
+      "rdfs:label": "Open Tourism Network Schema Pack v1.0",
+      "rdfs:comment": "Unified ontology bridge for ONT accommodation booking schemas on Beckn v2.0.",
+      "owl:imports": [
+        "https://schema.beckn.io/core/v2/vocab.jsonld",
+        "https://schema.beckn.io/AccommodationResource/v1.0/vocab.jsonld",
+        "https://schema.beckn.io/AccommodationRate/v1.0/vocab.jsonld",
+        "https://schema.beckn.io/CancellationTerms/v1.0/vocab.jsonld",
+        "https://schema.beckn.io/AccommodationReservation/v1.0/vocab.jsonld",
+        "https://schema.beckn.io/GuestManifest/v1.0/vocab.jsonld"
+      ]
+    },
+    {
+      "@id": "ar:ONTCoreSchema",
+      "@type": "rdfs:Class",
+      "rdfs:label": "ONT Core Schema",
+      "rdfs:comment": "Base class for all Open Tourism Network extension schemas on the Beckn Protocol."
+    },
+    {
+      "@id": "ar:container",
+      "@type": "rdf:Property",
+      "rdfs:label": "container",
+      "rdfs:comment": "Container slot in the Beckn generalised payload where this schema applies.",
+      "rdfs:range": "xsd:string"
+    },
+    {
+      "@id": "ar:AccommodationResource",
+      "@type": [ "rdfs:Class", "ar:ONTCoreSchema" ],
+      "ar:container": "resourceAttributes"
+    },
+    {
+      "@id": "acr:AccommodationRate",
+      "@type": [ "rdfs:Class", "ar:ONTCoreSchema" ],
+      "ar:container": "offerAttributes"
+    },
+    {
+      "@id": "ct:CancellationTerms",
+      "@type": [ "rdfs:Class", "ar:ONTCoreSchema" ],
+      "ar:container": "offerAttributes"
+    },
+    {
+      "@id": "ares:AccommodationReservation",
+      "@type": [ "rdfs:Class", "ar:ONTCoreSchema" ],
+      "ar:container": "contractAttributes"
+    },
+    {
+      "@id": "gm:GuestManifest",
+      "@type": [ "rdfs:Class", "ar:ONTCoreSchema" ],
+      "ar:container": "commitmentAttributes"
+    }
+  ]
+}
