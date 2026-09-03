@@ -1,7 +1,7 @@
 {
   "@context": {
     "schema": "https://schema.org/",
-    "ares": "https://schema.beckn.io/AccommodationReservation#",
+    "ares": "https://schema.nfh.global/AccommodationReservation#",
     "AccommodationReservation": "ares:AccommodationReservation",
     "bookingReference": { "@id": "ares:bookingReference" },
     "agentReference": { "@id": "ares:agentReference" },

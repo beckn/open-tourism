@@ -1,7 +1,7 @@
 {
   "@context": {
     "schema": "https://schema.org/",
-    "acr": "https://schema.beckn.io/AccommodationRate#",
+    "acr": "https://schema.nfh.global/AccommodationRate#",
     "AccommodationRate": "acr:AccommodationRate",
     "unitCategory": { "@id": "acr:unitCategory" },
     "unitTypeDescription": { "@id": "acr:unitTypeDescription" },

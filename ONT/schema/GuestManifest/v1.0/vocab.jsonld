@@ -1,7 +1,7 @@
 {
   "@context": {
-    "@import": "https://schema.beckn.io/core/v2/vocab.jsonld",
-    "gm": "https://schema.beckn.io/GuestManifest#",
+    "@import": "https://schema.nfh.global/core/v2/vocab.jsonld",
+    "gm": "https://schema.nfh.global/GuestManifest#",
     "schema": "https://schema.org/",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "owl": "http://www.w3.org/2002/07/owl#",

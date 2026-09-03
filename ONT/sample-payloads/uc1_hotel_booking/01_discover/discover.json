@@ -11,7 +11,7 @@
     "bppId": "otrams-bpp.qtechsoftware.com",
     "bppUri": "https://otrams-bpp.qtechsoftware.com/beckn",
     "schemaContext": [
-      "https://schema.beckn.io/AccommodationResource/v1.0/context.jsonld"
+      "https://schema.nfh.global/AccommodationResource/v1.0/context.jsonld"
     ]
   },
   "message": {

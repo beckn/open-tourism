@@ -11,7 +11,7 @@
     "bppId": "otrams-bpp.qtechsoftware.com",
     "bppUri": "https://otrams-bpp.qtechsoftware.com/beckn",
     "schemaContext": [
-      "https://schema.beckn.io/CancellationTerms/v1.0/context.jsonld"
+      "https://schema.nfh.global/CancellationTerms/v1.0/context.jsonld"
     ]
   },
   "message": {
@@ -46,7 +46,7 @@
               "res-OT000068509-deluxe-twin"
             ],
             "offerAttributes": {
-              "@context": "https://schema.beckn.io/CancellationTerms/v1.0/context.jsonld",
+              "@context": "https://schema.nfh.global/CancellationTerms/v1.0/context.jsonld",
               "@type": "ct:CancellationTerms",
               "verifiedTotalAmount": 117.26,
               "verifiedTotalCurrency": "USD",
@@ -74,7 +74,7 @@
         {
           "id": "cons-room-1-total",
           "considerationAttributes": {
-            "@context": "https://schema.beckn.io/PriceSpecification/v2.2/context.jsonld",
+            "@context": "https://schema.nfh.global/PriceSpecification/v2.2/context.jsonld",
             "@type": "PriceSpecification",
             "currency": "USD",
             "description": "Total for 2 nights — Deluxe Room Twin, Room Only (verified)",

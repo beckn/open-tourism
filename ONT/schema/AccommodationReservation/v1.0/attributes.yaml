@@ -1,5 +1,5 @@
 openapi: 3.1.1
-$id: https://schema.beckn.io/AccommodationReservation/v1.0/attributes.yaml
+$id: https://schema.nfh.global/AccommodationReservation/v1.0/attributes.yaml
 info:
   title: AccommodationReservation
   version: 1.0.0
@@ -27,7 +27,7 @@ components:
         - booking
         - lifecycle
       x-jsonld:
-        '@context': https://schema.beckn.io/AccommodationReservation/v1.0/context.jsonld
+        '@context': https://schema.nfh.global/AccommodationReservation/v1.0/context.jsonld
         '@type': ares:AccommodationReservation
       description: >
         Booking lifecycle record for an accommodation reservation on the ONT

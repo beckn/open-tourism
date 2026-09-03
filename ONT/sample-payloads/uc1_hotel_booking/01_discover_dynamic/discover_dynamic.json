@@ -9,8 +9,8 @@
     "bapId": "bap.example.com",
     "bapUri": "http://onix-bap:8081/bap/receiver",
     "schemaContext": [
-      "https://schema.beckn.io/HotelResource/v0.1/context.jsonld",
-      "https://schema.beckn.io/HotelOffer/v0.1/context.jsonld"
+      "https://schema.nfh.global/HotelResource/v0.1/context.jsonld",
+      "https://schema.nfh.global/HotelOffer/v0.1/context.jsonld"
     ]
   },
   "message": {

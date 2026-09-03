@@ -11,8 +11,8 @@
     "bppId": "otrams-bpp.qtechsoftware.com",
     "bppUri": "https://otrams-bpp.qtechsoftware.com/beckn",
     "schemaContext": [
-      "https://schema.beckn.io/AccommodationReservation/v1.0/context.jsonld",
-      "https://schema.beckn.io/GuestManifest/v1.0/context.jsonld"
+      "https://schema.nfh.global/AccommodationReservation/v1.0/context.jsonld",
+      "https://schema.nfh.global/GuestManifest/v1.0/context.jsonld"
     ]
   },
   "message": {
@@ -48,7 +48,7 @@
             ]
           },
           "commitmentAttributes": {
-            "@context": "https://schema.beckn.io/GuestManifest/v1.0/context.jsonld",
+            "@context": "https://schema.nfh.global/GuestManifest/v1.0/context.jsonld",
             "@type": "gm:GuestManifest",
             "passengers": [
               {
@@ -80,7 +80,7 @@
         {
           "id": "cons-room-1-total",
           "considerationAttributes": {
-            "@context": "https://schema.beckn.io/PriceSpecification/v2.2/context.jsonld",
+            "@context": "https://schema.nfh.global/PriceSpecification/v2.2/context.jsonld",
             "@type": "PriceSpecification",
             "currency": "USD",
             "description": "Total for 2 nights — Deluxe Room Twin, Room Only",
@@ -109,7 +109,7 @@
         }
       ],
       "contractAttributes": {
-        "@context": "https://schema.beckn.io/AccommodationReservation/v1.0/context.jsonld",
+        "@context": "https://schema.nfh.global/AccommodationReservation/v1.0/context.jsonld",
         "@type": "ares:AccommodationReservation",
         "bookingReference": "OT2601499261",
         "agentReference": "c517eea7eaeadc402b82",

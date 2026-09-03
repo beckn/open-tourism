@@ -8,14 +8,10 @@ Beckn container: `offerAttributes`
 
 | File | Purpose |
 |---|---|
-| [https://schema.beckn.io/AccommodationRate/attributes.yaml](https://schema.beckn.io/AccommodationRate/attributes.yaml) | OpenAPI schema envelope (latest path) |
-| [https://schema.beckn.io/AccommodationRate/v1.0/attributes.yaml](https://schema.beckn.io/AccommodationRate/v1.0/attributes.yaml) | OpenAPI schema envelope (versioned path) |
-| [https://schema.beckn.io/AccommodationRate/context.jsonld](https://schema.beckn.io/AccommodationRate/context.jsonld) | JSON-LD context (latest path) |
-| [https://schema.beckn.io/AccommodationRate/v1.0/context.jsonld](https://schema.beckn.io/AccommodationRate/v1.0/context.jsonld) | JSON-LD context (versioned path) |
-| [https://schema.beckn.io/AccommodationRate/vocab.jsonld](https://schema.beckn.io/AccommodationRate/vocab.jsonld) | RDF vocabulary (latest path) |
-| [https://schema.beckn.io/AccommodationRate/v1.0/vocab.jsonld](https://schema.beckn.io/AccommodationRate/v1.0/vocab.jsonld) | RDF vocabulary (versioned path) |
-| [https://schema.beckn.io/AccommodationRate/profile.json](https://schema.beckn.io/AccommodationRate/profile.json) | Beckn profile descriptor (latest path) |
-| [https://schema.beckn.io/AccommodationRate/v1.0/profile.json](https://schema.beckn.io/AccommodationRate/v1.0/profile.json) | Beckn profile descriptor (versioned path) |
+| [https://schema.nfh.global/AccommodationRate/v1.0/attributes.yaml](https://schema.nfh.global/AccommodationRate/v1.0/attributes.yaml) | OpenAPI schema envelope (versioned path) |
+| [https://schema.nfh.global/AccommodationRate/v1.0/context.jsonld](https://schema.nfh.global/AccommodationRate/v1.0/context.jsonld) | JSON-LD context (versioned path) |
+| [https://schema.nfh.global/AccommodationRate/v1.0/vocab.jsonld](https://schema.nfh.global/AccommodationRate/v1.0/vocab.jsonld) | RDF vocabulary (versioned path) |
+| [https://schema.nfh.global/AccommodationRate/v1.0/profile.json](https://schema.nfh.global/AccommodationRate/v1.0/profile.json) | Beckn profile descriptor (versioned path) |
 
 ## Properties
 

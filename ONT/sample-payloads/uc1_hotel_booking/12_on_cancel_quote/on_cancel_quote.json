@@ -12,7 +12,7 @@
     "bppUri": "https://otrams-bpp.qtechsoftware.com/beckn",
     "try": true,
     "schemaContext": [
-      "https://schema.beckn.io/CancellationTerms/v1.0/context.jsonld"
+      "https://schema.nfh.global/CancellationTerms/v1.0/context.jsonld"
     ]
   },
   "message": {
@@ -37,7 +37,7 @@
             "id": "offer-OT000068509-NRF-RO-001",
             "resourceIds": ["res-OT000068509-deluxe-twin"],
             "offerAttributes": {
-              "@context": "https://schema.beckn.io/CancellationTerms/v1.0/context.jsonld",
+              "@context": "https://schema.nfh.global/CancellationTerms/v1.0/context.jsonld",
               "@type": "ct:CancellationTerms",
               "cancellationChargeQuote": {
                 "allowCancel": "yes",

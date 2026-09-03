@@ -1,5 +1,5 @@
 openapi: 3.1.1
-$id: https://schema.beckn.io/CancellationTerms/v1.0/attributes.yaml
+$id: https://schema.nfh.global/CancellationTerms/v1.0/attributes.yaml
 info:
   title: CancellationTerms
   version: 1.0.0
@@ -28,7 +28,7 @@ components:
         - pre-commit
         - policy
       x-jsonld:
-        '@context': https://schema.beckn.io/CancellationTerms/v1.0/context.jsonld
+        '@context': https://schema.nfh.global/CancellationTerms/v1.0/context.jsonld
         '@type': ct:CancellationTerms
       description: >
         Binding cancellation policy confirmed at the pre-commit check. Normalises

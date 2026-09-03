@@ -1,11 +1,11 @@
 {
   "@context": {
-    "@import": "https://schema.beckn.io/core/v2/vocab.jsonld",
-    "ar": "https://schema.beckn.io/AccommodationResource#",
-    "acr": "https://schema.beckn.io/AccommodationRate#",
-    "ares": "https://schema.beckn.io/AccommodationReservation#",
-    "ct": "https://schema.beckn.io/CancellationTerms#",
-    "gm": "https://schema.beckn.io/GuestManifest#",
+    "@import": "https://schema.nfh.global/core/v2/vocab.jsonld",
+    "ar": "https://schema.nfh.global/AccommodationResource#",
+    "acr": "https://schema.nfh.global/AccommodationRate#",
+    "ares": "https://schema.nfh.global/AccommodationReservation#",
+    "ct": "https://schema.nfh.global/CancellationTerms#",
+    "gm": "https://schema.nfh.global/GuestManifest#",
     "owl": "http://www.w3.org/2002/07/owl#",
     "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
@@ -20,12 +20,12 @@
       "rdfs:label": "Open Tourism Network Schema Pack v1.0",
       "rdfs:comment": "Unified ontology bridge for ONT accommodation booking schemas on Beckn v2.0.",
       "owl:imports": [
-        "https://schema.beckn.io/core/v2/vocab.jsonld",
-        "https://schema.beckn.io/AccommodationResource/v1.0/vocab.jsonld",
-        "https://schema.beckn.io/AccommodationRate/v1.0/vocab.jsonld",
-        "https://schema.beckn.io/CancellationTerms/v1.0/vocab.jsonld",
-        "https://schema.beckn.io/AccommodationReservation/v1.0/vocab.jsonld",
-        "https://schema.beckn.io/GuestManifest/v1.0/vocab.jsonld"
+        "https://schema.nfh.global/core/v2/vocab.jsonld",
+        "https://schema.nfh.global/AccommodationResource/v1.0/vocab.jsonld",
+        "https://schema.nfh.global/AccommodationRate/v1.0/vocab.jsonld",
+        "https://schema.nfh.global/CancellationTerms/v1.0/vocab.jsonld",
+        "https://schema.nfh.global/AccommodationReservation/v1.0/vocab.jsonld",
+        "https://schema.nfh.global/GuestManifest/v1.0/vocab.jsonld"
       ]
     },
     {
