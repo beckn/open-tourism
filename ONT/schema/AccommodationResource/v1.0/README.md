@@ -8,14 +8,10 @@ Beckn container: `resourceAttributes`
 
 | File | Purpose |
 |---|---|
-| [https://schema.beckn.io/AccommodationResource/attributes.yaml](https://schema.beckn.io/AccommodationResource/attributes.yaml) | OpenAPI schema envelope (latest path) |
-| [https://schema.beckn.io/AccommodationResource/v1.0/attributes.yaml](https://schema.beckn.io/AccommodationResource/v1.0/attributes.yaml) | OpenAPI schema envelope (versioned path) |
-| [https://schema.beckn.io/AccommodationResource/context.jsonld](https://schema.beckn.io/AccommodationResource/context.jsonld) | JSON-LD context (latest path) |
-| [https://schema.beckn.io/AccommodationResource/v1.0/context.jsonld](https://schema.beckn.io/AccommodationResource/v1.0/context.jsonld) | JSON-LD context (versioned path) |
-| [https://schema.beckn.io/AccommodationResource/vocab.jsonld](https://schema.beckn.io/AccommodationResource/vocab.jsonld) | RDF vocabulary (latest path) |
-| [https://schema.beckn.io/AccommodationResource/v1.0/vocab.jsonld](https://schema.beckn.io/AccommodationResource/v1.0/vocab.jsonld) | RDF vocabulary (versioned path) |
-| [https://schema.beckn.io/AccommodationResource/profile.json](https://schema.beckn.io/AccommodationResource/profile.json) | Beckn profile descriptor (latest path) |
-| [https://schema.beckn.io/AccommodationResource/v1.0/profile.json](https://schema.beckn.io/AccommodationResource/v1.0/profile.json) | Beckn profile descriptor (versioned path) |
+| [https://schema.nfh.global/AccommodationResource/v1.0/attributes.yaml](https://schema.nfh.global/AccommodationResource/v1.0/attributes.yaml) | OpenAPI schema envelope (versioned path) |
+| [https://schema.nfh.global/AccommodationResource/v1.0/context.jsonld](https://schema.nfh.global/AccommodationResource/v1.0/context.jsonld) | JSON-LD context (versioned path) |
+| [https://schema.nfh.global/AccommodationResource/v1.0/vocab.jsonld](https://schema.nfh.global/AccommodationResource/v1.0/vocab.jsonld) | RDF vocabulary (versioned path) |
+| [https://schema.nfh.global/AccommodationResource/v1.0/profile.json](https://schema.nfh.global/AccommodationResource/v1.0/profile.json) | Beckn profile descriptor (versioned path) |
 
 ## Properties
 

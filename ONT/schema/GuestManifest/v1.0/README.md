@@ -8,14 +8,10 @@ Beckn container: `commitmentAttributes`
 
 | File | Purpose |
 |---|---|
-| [https://schema.beckn.io/GuestManifest/attributes.yaml](https://schema.beckn.io/GuestManifest/attributes.yaml) | OpenAPI schema envelope (latest path) |
-| [https://schema.beckn.io/GuestManifest/v1.0/attributes.yaml](https://schema.beckn.io/GuestManifest/v1.0/attributes.yaml) | OpenAPI schema envelope (versioned path) |
-| [https://schema.beckn.io/GuestManifest/context.jsonld](https://schema.beckn.io/GuestManifest/context.jsonld) | JSON-LD context (latest path) |
-| [https://schema.beckn.io/GuestManifest/v1.0/context.jsonld](https://schema.beckn.io/GuestManifest/v1.0/context.jsonld) | JSON-LD context (versioned path) |
-| [https://schema.beckn.io/GuestManifest/vocab.jsonld](https://schema.beckn.io/GuestManifest/vocab.jsonld) | RDF vocabulary (latest path) |
-| [https://schema.beckn.io/GuestManifest/v1.0/vocab.jsonld](https://schema.beckn.io/GuestManifest/v1.0/vocab.jsonld) | RDF vocabulary (versioned path) |
-| [https://schema.beckn.io/GuestManifest/profile.json](https://schema.beckn.io/GuestManifest/profile.json) | Beckn profile descriptor (latest path) |
-| [https://schema.beckn.io/GuestManifest/v1.0/profile.json](https://schema.beckn.io/GuestManifest/v1.0/profile.json) | Beckn profile descriptor (versioned path) |
+| [https://schema.nfh.global/GuestManifest/v1.0/attributes.yaml](https://schema.nfh.global/GuestManifest/v1.0/attributes.yaml) | OpenAPI schema envelope (versioned path) |
+| [https://schema.nfh.global/GuestManifest/v1.0/context.jsonld](https://schema.nfh.global/GuestManifest/v1.0/context.jsonld) | JSON-LD context (versioned path) |
+| [https://schema.nfh.global/GuestManifest/v1.0/vocab.jsonld](https://schema.nfh.global/GuestManifest/v1.0/vocab.jsonld) | RDF vocabulary (versioned path) |
+| [https://schema.nfh.global/GuestManifest/v1.0/profile.json](https://schema.nfh.global/GuestManifest/v1.0/profile.json) | Beckn profile descriptor (versioned path) |
 
 ## Properties
 

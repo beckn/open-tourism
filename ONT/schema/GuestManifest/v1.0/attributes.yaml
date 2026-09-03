@@ -1,5 +1,5 @@
 openapi: 3.1.1
-$id: https://schema.beckn.io/GuestManifest/v1.0/attributes.yaml
+$id: https://schema.nfh.global/GuestManifest/v1.0/attributes.yaml
 info:
   title: GuestManifest
   version: 1.0.0
@@ -26,7 +26,7 @@ components:
         - guest
         - consent
       x-jsonld:
-        '@context': https://schema.beckn.io/GuestManifest/v1.0/context.jsonld
+        '@context': https://schema.nfh.global/GuestManifest/v1.0/context.jsonld
         '@type': gm:GuestManifest
       description: >
         Per-room guest manifest for an accommodation booking. Contains PII.

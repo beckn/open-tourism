@@ -1,5 +1,5 @@
 {
-  "id": "https://schema.beckn.io/GuestManifest/v1.0",
+  "id": "https://schema.nfh.global/GuestManifest/v1.0",
   "name": "GuestManifest",
   "version": "1.0.0",
   "protocol_version": "2.0",

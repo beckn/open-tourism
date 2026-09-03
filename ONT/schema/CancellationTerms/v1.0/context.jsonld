@@ -1,7 +1,7 @@
 {
   "@context": {
     "schema": "https://schema.org/",
-    "ct": "https://schema.beckn.io/CancellationTerms#",
+    "ct": "https://schema.nfh.global/CancellationTerms#",
     "CancellationTerms": "ct:CancellationTerms",
     "verifiedTotalAmount": { "@id": "ct:verifiedTotalAmount" },
     "verifiedTotalCurrency": { "@id": "ct:verifiedTotalCurrency" },

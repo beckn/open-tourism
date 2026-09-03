@@ -9,7 +9,7 @@ Complete index of the ONT v1.0 schema pack for hotel and accommodation booking o
 ### Schema 1: AccommodationResource
 - **Purpose:** Static catalog attributes for a bookable accommodation unit type at a property
 - **Container:** `resourceAttributes`
-- **Prefix:** `ar` → https://schema.beckn.io/AccommodationResource#
+- **Prefix:** `ar` → https://schema.nfh.global/AccommodationResource#
 - **Files:**
   - [attributes.yaml](./AccommodationResource/v1.0/attributes.yaml) - OpenAPI 3.1.1 schema definition
   - [context.jsonld](./AccommodationResource/v1.0/context.jsonld) - JSON-LD namespace context
@@ -30,7 +30,7 @@ Complete index of the ONT v1.0 schema pack for hotel and accommodation booking o
 ### Schema 2: AccommodationRate
 - **Purpose:** Live pricing and availability for a specific room-rate combination within a search session
 - **Container:** `offerAttributes`
-- **Prefix:** `acr` → https://schema.beckn.io/AccommodationRate#
+- **Prefix:** `acr` → https://schema.nfh.global/AccommodationRate#
 - **Files:**
   - [attributes.yaml](./AccommodationRate/v1.0/attributes.yaml) - OpenAPI 3.1.1 schema definition
   - [context.jsonld](./AccommodationRate/v1.0/context.jsonld) - JSON-LD namespace context
@@ -53,7 +53,7 @@ Complete index of the ONT v1.0 schema pack for hotel and accommodation booking o
 ### Schema 3: CancellationTerms
 - **Purpose:** Binding cancellation and refund terms confirmed at the pre-commit check, plus booking gate signals and cancel-quote results
 - **Container:** `offerAttributes`
-- **Prefix:** `ct` → https://schema.beckn.io/CancellationTerms#
+- **Prefix:** `ct` → https://schema.nfh.global/CancellationTerms#
 - **Files:**
   - [attributes.yaml](./CancellationTerms/v1.0/attributes.yaml) - OpenAPI 3.1.1 schema definition
   - [context.jsonld](./CancellationTerms/v1.0/context.jsonld) - JSON-LD namespace context
@@ -75,7 +75,7 @@ Complete index of the ONT v1.0 schema pack for hotel and accommodation booking o
 ### Schema 4: AccommodationReservation
 - **Purpose:** Booking lifecycle record returned from `on_confirm` and updated via `on_status` and `on_cancel`
 - **Container:** `contractAttributes`
-- **Prefix:** `ares` → https://schema.beckn.io/AccommodationReservation#
+- **Prefix:** `ares` → https://schema.nfh.global/AccommodationReservation#
 - **Files:**
   - [attributes.yaml](./AccommodationReservation/v1.0/attributes.yaml) - OpenAPI 3.1.1 schema definition
   - [context.jsonld](./AccommodationReservation/v1.0/context.jsonld) - JSON-LD namespace context
@@ -98,7 +98,7 @@ Complete index of the ONT v1.0 schema pack for hotel and accommodation booking o
 ### Schema 5: GuestManifest
 - **Purpose:** Per-room guest identity sent at `confirm` and echoed in `on_confirm`, under purpose-bound consent
 - **Container:** `commitmentAttributes`
-- **Prefix:** `gm` → https://schema.beckn.io/GuestManifest#
+- **Prefix:** `gm` → https://schema.nfh.global/GuestManifest#
 - **Files:**
   - [attributes.yaml](./GuestManifest/v1.0/attributes.yaml) - OpenAPI 3.1.1 schema definition
   - [context.jsonld](./GuestManifest/v1.0/context.jsonld) - JSON-LD namespace context
@@ -137,7 +137,7 @@ Each schema pack contains exactly 5 files:
 
 ### Semantic Integration
 All schemas import core Beckn vocabulary:
-- **Vocabulary import:** `https://schema.beckn.io/core/v2/vocab.jsonld`
+- **Vocabulary import:** `https://schema.nfh.global/core/v2/vocab.jsonld`
 - **Root context:** `ONT/schema/context.jsonld`
 - **Root vocab:** `ONT/schema/vocab.jsonld`
 

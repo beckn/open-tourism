@@ -1,7 +1,7 @@
 {
   "@context": {
     "schema": "https://schema.org/",
-    "ar": "https://schema.beckn.io/AccommodationResource#",
+    "ar": "https://schema.nfh.global/AccommodationResource#",
     "AccommodationResource": "ar:AccommodationResource",
     "localPropertyId": { "@id": "ar:localPropertyId" },
     "propertyName": { "@id": "schema:name" },

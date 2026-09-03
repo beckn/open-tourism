@@ -1,5 +1,5 @@
 openapi: 3.1.1
-$id: https://schema.beckn.io/AccommodationRate/v1.0/attributes.yaml
+$id: https://schema.nfh.global/AccommodationRate/v1.0/attributes.yaml
 info:
   title: AccommodationRate
   version: 1.0.0
@@ -25,7 +25,7 @@ components:
         - live
         - pricing
       x-jsonld:
-        '@context': https://schema.beckn.io/AccommodationRate/v1.0/context.jsonld
+        '@context': https://schema.nfh.global/AccommodationRate/v1.0/context.jsonld
         '@type': acr:AccommodationRate
       description: >
         Live-priced offer attributes for one room-rate combination within a
